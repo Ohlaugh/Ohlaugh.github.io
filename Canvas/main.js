@@ -14,8 +14,20 @@ var floor1 = new Floor(1);
 var blueprint = new Blueprint("name");
 blueprint.add(floor1);
 blueprint.floors[0].add(table,10 , 15);
+blueprint.currentFloor = 0;
 
-
+blueprint.draw = function(){
+	
+	context.beginPath();
+	context.arc(5, 5, 4, 0, 2 * Math.PI);
+	context.stroke();
+	var currentFloor = blueprint.currentFloor;
+	blueprint.floors[currentFloor].RoomObjects.forEach(RoomObject => {
+		var img = document.getElementById(RoomObject.pictureID);
+		console.log(RoomObject.x,RoomObject.y);
+		context.drawImage(img,RoomObject.x,RoomObject.y,RoomObject.width,RoomObject.height);
+	})
+}
 
 startUp();
 function onMouseDownCanvas(){
@@ -27,6 +39,8 @@ function onMouseDownCanvas(){
 	context.beginPath();
 	context.arc(startX, startY, 4, 0, 2 * Math.PI);
 	context.stroke();
+	
+	blueprint.draw();
 	
 }
 
@@ -40,6 +54,9 @@ function onMouseUpCanvas(){
 	context.moveTo(startX, startY);
 	context.lineTo(endX, endY);
 	context.stroke();
+	
+	blueprint.draw();
+
 	
 }
 
@@ -59,6 +76,12 @@ function onMouseMoveCanvas(){
 	context.moveTo(startX, startY);
 	context.lineTo(endX, endY);
 	context.stroke();
+	blueprint.floors[0].RoomObjects[0].translate(endX - startX, endY - startY);
+	
+	startX = event.offsetX;
+	startY = event.offsetY;
+	
+	blueprint.draw();
 	
 }
 

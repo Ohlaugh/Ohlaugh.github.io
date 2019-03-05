@@ -38,16 +38,21 @@ class Floor {
 
 
 class RoomObject {
-	constructor(width,height,picture){
+	constructor(width,height,pictureID){
 		this.x = 0;
 		this.y = 0;
 		this.width = width;
 		this.height = height;
-		this.picture = picture;
+		this.pictureID = pictureID;
 		this.rotation = 0;
 	}
 	move(x, y){
 		this.x = x;
 		this.y = y;		
+	}
+	
+	translate(x, y){
+		this.x += x;
+		this.y += y;		
 	}
 }
