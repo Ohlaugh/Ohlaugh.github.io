@@ -212,15 +212,20 @@ function panTool(){
 	canvas.style.cursor = "move"
 }
 
-function startUp(){
-	console.log(convasDiv.offsetHight);
+function resize(){
 	canvas.width = convasDiv.offsetWidth;
 	canvas.height = convasDiv.offsetHeight;
+	blueprint.draw();
+}
+
+function startUp(){
+	resize();
 	canvas.addEventListener("mousedown", handelMouseDown);
 	canvas.addEventListener("mouseup", handelMouseUp);
 	canvas.addEventListener("mousemove", handelMouseMove);
+	window.addEventListener("resize", resize);
 	
-	blueprint.draw();
+	//blueprint.draw();
 }
 
 /*
