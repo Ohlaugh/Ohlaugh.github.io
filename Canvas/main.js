@@ -3,12 +3,21 @@ var convasDiv = document.getElementById("mainCanvasDiv")
 var context = canvas.getContext("2d");
 
 
-startUp();
 
 var startX;
 var startY;
 var isDown = false;
 
+
+
+var floor1 = new Floor(1);
+var blueprint = new Blueprint("name");
+blueprint.add(floor1);
+blueprint.floors[0].add(table,10 , 15);
+
+
+
+startUp();
 function onMouseDownCanvas(){
 	isDown = true;
 	//alert("h");
