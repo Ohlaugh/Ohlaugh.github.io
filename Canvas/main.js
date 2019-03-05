@@ -20,10 +20,14 @@ blueprint.selectedObject = 0;
 
 blueprint.draw = function(){
 	var currentFloor = blueprint.currentFloor;
-	blueprint.floors[currentFloor].RoomObjects.forEach(RoomObject => {
-		var img = document.getElementById(RoomObject.pictureID);
-		context.drawImage(img,RoomObject.x,RoomObject.y,RoomObject.width,RoomObject.height);
-	})
+	
+	var Objects = blueprint.floors[currentFloor].RoomObjects;
+	for(var i = Objects.length - 1; i >= 0; i--){
+		var img = document.getElementById(Objects[i].pictureID);
+		context.drawImage(img,Objects[i].x, Objects[i].y, Objects[i].width, Objects[i].height);
+	}
+	//blueprint.floors[currentFloor].RoomObjects.forEach(RoomObject => {
+	//})
 }
 
 window.onload = startUp;

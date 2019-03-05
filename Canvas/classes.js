@@ -26,10 +26,17 @@ class Blueprint {
 			var y2 = Objects[i].y + Objects[i].height;
 			if(x >= x1 && x <= x2 && y >= y1 && y <= y2){
 				this.selectedObject = i;
+				this.bringToFront();
 				return;
 			}
 		}
 		this.selectedObject = undefined;
+	}
+	
+	bringToFront(){
+		var first = this.floors[this.currentFloor].RoomObjects[this.selectedObject];
+		this.floors[this.currentFloor].RoomObjects.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
+		this.selectedObject = 0;
 	}
 }
 
