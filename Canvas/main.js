@@ -20,6 +20,7 @@ blueprint.currentFloor = 0;
 blueprint.selectedObject = 0;
 
 blueprint.draw = function(){
+	drawBackGround();
 	var currentFloor = blueprint.currentFloor;
 	
 	var Objects = blueprint.floors[currentFloor].RoomObjects;
@@ -30,8 +31,51 @@ blueprint.draw = function(){
 		var img = document.getElementById(Objects[i].pictureID);
 		context.drawImage(img, Objects[i].x + translateX, Objects[i].y + translateY, Objects[i].width, Objects[i].height);
 	}
+	
 	//blueprint.floors[currentFloor].RoomObjects.forEach(RoomObject => {
 	//})
+}
+
+function drawBackGround(){
+	var translateX = blueprint.translateX;
+	var translateY = blueprint.translateY;
+	
+	var baseWidthpx = 40;
+	var darkerSize = 6;
+	
+	var darkColor = "#000000";
+	var lightColor = "#DDDDDD";
+	
+	
+	//draw columns
+	var startColumnX = 0 + (translateX % baseWidthpx);
+	for(var i = startColumnX; i < canvas.width; i += baseWidthpx){
+		if((i - translateX) % (darkerSize * baseWidthpx) == 0){
+			context.strokeStyle = darkColor;
+		} else {
+			context.strokeStyle = lightColor;
+		}
+		context.beginPath();
+		context.moveTo(i, 0);
+		context.lineTo(i, canvas.height);
+		context.stroke();
+	}
+	
+	//draw rows
+	var startRowY = 0 + (translateY % baseWidthpx);
+	for(var i = startRowY; i < canvas.height; i += baseWidthpx){
+		if((i - translateY) % (darkerSize * baseWidthpx) == 0){
+			context.strokeStyle = darkColor;
+		} else {
+			context.strokeStyle = lightColor;
+		}
+		context.beginPath();
+		context.beginPath();
+		context.moveTo(0, i);
+		context.lineTo(canvas.width, i);
+		context.stroke();
+	}
+	
 }
 
 window.onload = startUp;
