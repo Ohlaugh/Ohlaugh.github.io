@@ -3,7 +3,8 @@ class Blueprint {
 		this.floors = [];
 		this.name = name;
 		this.floorCount = 0;
-		this.currentFloor = undefined;
+		this.currentFloor = 0;
+		this.selectedObject = undefined;
 		this.draw = undefined;
 	}
 	add(floor, onTop = true){
@@ -15,6 +16,20 @@ class Blueprint {
 		}
 		this.floorCount++;
 		return;
+	}
+	objectCollision(x, y){
+		var Objects = this.floors[this.currentFloor].RoomObjects;
+		for(var i = 0; i < Objects.length; i++){
+			var x1 = Objects[i].x;
+			var y1 = Objects[i].y;
+			var x2 = Objects[i].x + Objects[i].width;
+			var y2 = Objects[i].y + Objects[i].height;
+			if(x >= x1 && x <= x2 && y >= y1 && y <= y2){
+				this.selectedObject = i;
+				return;
+			}
+		}
+		this.selectedObject = undefined;
 	}
 }
 
