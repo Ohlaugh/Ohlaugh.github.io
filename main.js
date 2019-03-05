@@ -7,8 +7,10 @@ startUp();
 
 var startX;
 var startY;
+var isDown = false;
 
 function onMouseDownCanvas(){
+	isDown = true;
 	//alert("h");
 	startX = event.offsetX;
 	startY = event.offsetY;
@@ -20,6 +22,7 @@ function onMouseDownCanvas(){
 }
 
 function onMouseUpCanvas(){
+	isDown = false;
 	//alert("h");
 	var endX = event.offsetX;
 	var endY = event.offsetY;
@@ -31,12 +34,36 @@ function onMouseUpCanvas(){
 	
 }
 
+function onMouseMoveCanvas(){
+	if(!isDown)
+		return;
+	clearCanvas();
+	//alert("h");
+	var endX = event.offsetX;
+	var endY = event.offsetY;
+
+	context.beginPath();
+	context.arc(startX, startY, 4, 0, 2 * Math.PI);
+	context.stroke();
+	
+	context.beginPath();
+	context.moveTo(startX, startY);
+	context.lineTo(endX, endY);
+	context.stroke();
+	
+}
+
+function clearCanvas(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 function startUp(){
 	console.log(convasDiv.offsetHight);
 	canvas.width = convasDiv.offsetWidth;
-	canvas.hight = convasDiv.offsetHight;
+	canvas.height = convasDiv.offsetHeight;
 	canvas.addEventListener("mousedown", onMouseDownCanvas);
 	canvas.addEventListener("mouseup", onMouseUpCanvas);
+	canvas.addEventListener("mousemove", onMouseMoveCanvas);
 	//canvas.onClick = onClickCanvas;
 	
 	
