@@ -87,9 +87,9 @@ function onMouseDownCanvas(){
 
 	blueprint.objectCollision(startX, startY);
 	
-	context.beginPath();
-	context.arc(startX, startY, 4, 0, 2 * Math.PI);
-	context.stroke();
+	// context.beginPath();
+	// context.arc(startX, startY, 4, 0, 2 * Math.PI);
+	// context.stroke();
 	
 	blueprint.draw();
 	
@@ -101,10 +101,10 @@ function onMouseUpCanvas(){
 	var endX = event.offsetX;
 	var endY = event.offsetY;
 
-	context.beginPath();
-	context.moveTo(startX, startY);
-	context.lineTo(endX, endY);
-	context.stroke();
+	// context.beginPath();
+	// context.moveTo(startX, startY);
+	// context.lineTo(endX, endY);
+	// context.stroke();
 	
 	blueprint.draw();
 
@@ -119,14 +119,14 @@ function onMouseMoveCanvas(){
 	var endX = event.offsetX;
 	var endY = event.offsetY;
 
-	context.beginPath();
-	context.arc(startX, startY, 4, 0, 2 * Math.PI);
-	context.stroke();
+	// context.beginPath();
+	// context.arc(startX, startY, 4, 0, 2 * Math.PI);
+	// context.stroke();
 	
-	context.beginPath();
-	context.moveTo(startX, startY);
-	context.lineTo(endX, endY);
-	context.stroke();
+	// context.beginPath();
+	// context.moveTo(startX, startY);
+	// context.lineTo(endX, endY);
+	// context.stroke();
 	
 	var currentFloor = blueprint.currentFloor;
 	var selectedObject = blueprint.selectedObject;
