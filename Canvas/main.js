@@ -82,8 +82,8 @@ function onMouseMoveCanvas(){
 	
 	var currentFloor = blueprint.currentFloor;
 	var selectedObject = blueprint.selectedObject;
-	
-	blueprint.floors[currentFloor].RoomObjects[selectedObject].translate(endX - startX, endY - startY);
+	if(selectedObject >= 0)
+		blueprint.floors[currentFloor].RoomObjects[selectedObject].translate(endX - startX, endY - startY);
 	
 	startX = event.offsetX;
 	startY = event.offsetY;
