@@ -7,6 +7,7 @@ var context = canvas.getContext("2d");
 var startX;
 var startY;
 var isDown = false;
+var currentTool = "select";
 
 
 
@@ -22,9 +23,12 @@ blueprint.draw = function(){
 	var currentFloor = blueprint.currentFloor;
 	
 	var Objects = blueprint.floors[currentFloor].RoomObjects;
+	var translateX = blueprint.translateX;
+	var translateY = blueprint.translateY;
+	
 	for(var i = Objects.length - 1; i >= 0; i--){
 		var img = document.getElementById(Objects[i].pictureID);
-		context.drawImage(img,Objects[i].x, Objects[i].y, Objects[i].width, Objects[i].height);
+		context.drawImage(img, Objects[i].x + translateX, Objects[i].y + translateY, Objects[i].width, Objects[i].height);
 	}
 	//blueprint.floors[currentFloor].RoomObjects.forEach(RoomObject => {
 	//})
@@ -92,24 +96,88 @@ function onMouseMoveCanvas(){
 	
 }
 
+function onMouseDownPan(){
+	isDown = true;
+	//alert("h");
+	startX = event.offsetX;
+	startY = event.offsetY;
+}
+
+function onMouseUpPan(){
+	isDown = false;
+	//alert("h");
+	var endX = event.offsetX;
+	var endY = event.offsetY;
+	//blueprint.draw();
+}
+
+function onMouseMovePan(){
+	if(!isDown)
+		return;
+	clearCanvas();
+	
+	var endX = event.offsetX;
+	var endY = event.offsetY;
+	
+	blueprint.translate(endX - startX, endY - startY);
+	
+	blueprint.draw();
+	
+	
+	startX = event.offsetX;
+	startY = event.offsetY;
+}
+
+
 function clearCanvas(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+function handelMouseDown(){
+	if(currentTool == "select"){
+		return onMouseDownCanvas();
+	} else if(currentTool == "pan"){
+		return onMouseDownPan();
+	}
+}
+
+function handelMouseUp(){
+	if(currentTool == "select"){
+		return onMouseUpCanvas();
+	} else if(currentTool == "pan"){
+		return onMouseUpPan();
+	}
+}
+
+function handelMouseMove(){
+	if(currentTool == "select"){
+		return onMouseMoveCanvas();
+	} else if(currentTool == "pan"){
+		return onMouseMovePan();
+	}
+}
+
+function selectTool(){
+	currentTool = "select";
+	canvas.style.cursor = ""
+}
+
+function panTool(){
+	currentTool = "pan";
+	canvas.style.cursor = "move"
 }
 
 function startUp(){
 	console.log(convasDiv.offsetHight);
 	canvas.width = convasDiv.offsetWidth;
 	canvas.height = convasDiv.offsetHeight;
-	canvas.addEventListener("mousedown", onMouseDownCanvas);
-	canvas.addEventListener("mouseup", onMouseUpCanvas);
-	canvas.addEventListener("mousemove", onMouseMoveCanvas);
+	canvas.addEventListener("mousedown", handelMouseDown);
+	canvas.addEventListener("mouseup", handelMouseUp);
+	canvas.addEventListener("mousemove", handelMouseMove);
 	
 	blueprint.draw();
-	//canvas.onClick = onClickCanvas;
-	
-	
 }
-
 
 /*
 

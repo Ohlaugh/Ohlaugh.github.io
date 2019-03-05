@@ -6,6 +6,8 @@ class Blueprint {
 		this.currentFloor = 0;
 		this.selectedObject = undefined;
 		this.draw = undefined;
+		this.translateX = 0;
+		this.translateY = 0;
 	}
 	add(floor, onTop = true){
 		if(onTop){
@@ -20,10 +22,10 @@ class Blueprint {
 	objectCollision(x, y){
 		var Objects = this.floors[this.currentFloor].RoomObjects;
 		for(var i = 0; i < Objects.length; i++){
-			var x1 = Objects[i].x;
-			var y1 = Objects[i].y;
-			var x2 = Objects[i].x + Objects[i].width;
-			var y2 = Objects[i].y + Objects[i].height;
+			var x1 = Objects[i].x + this.translateX;
+			var y1 = Objects[i].y + this.translateY;
+			var x2 = x1 + Objects[i].width;
+			var y2 = y1 + Objects[i].height;
 			if(x >= x1 && x <= x2 && y >= y1 && y <= y2){
 				this.selectedObject = i;
 				this.bringToFront();
@@ -37,6 +39,12 @@ class Blueprint {
 		var first = this.floors[this.currentFloor].RoomObjects[this.selectedObject];
 		this.floors[this.currentFloor].RoomObjects.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
 		this.selectedObject = 0;
+	}
+	
+	
+	translate(x, y){
+		this.translateX += x;
+		this.translateY += y;
 	}
 }
 
