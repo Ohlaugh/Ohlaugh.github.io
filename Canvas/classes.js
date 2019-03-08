@@ -53,6 +53,7 @@ class Floor {
 	constructor(floorNum){
 		this.floorNum = floorNum;
 		this.RoomObjects = [];
+		this.Walls = [];
 		this.draw = undefined;
 	}
 	
@@ -84,5 +85,26 @@ class RoomObject {
 	translate(x, y){
 		this.x += x;
 		this.y += y;		
+	}
+}
+
+class Wall {
+	constructor(startX, startY, endX, endY, id){
+		this.thickness = 5;
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
+		this.id = id;
+		this.connected = [];
+		
+		
+	}
+	get point1() {
+		var dx = this.endX = this.startX;
+		var dy = this.endY = this.startY;
+		var sum = dx + dy;
+		var x1, y1;
+		return [x1, y1];
 	}
 }
