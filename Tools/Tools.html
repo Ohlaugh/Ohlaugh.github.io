@@ -1,31 +1,42 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <body>
-	<div>
-		This is the tools
-		<div class="col-sm-4">
-			<i class="fas fa-mouse-pointer fa-L"></i>
-			<button type="button" onclick="selectTool()"> Select Tool </button>
+	This is the tools
+	<div style="display: flex;">		
+		<div style="flex: 50%;">
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-mouse-pointer fa-L"></i>
+				<button type="button" onclick="selectTool()" style="border-radius: 4px;background-color: Green; color: white;"> Select Tool </button>
+			</div>
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-draw-polygon"></i>
+				<button type="button" onclick="wallTool()" style="border-radius: 4px;background-color: Red; color: white;"> Wall Tool </button>
+			</div>
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-file-import"> Import</i>
+			</div>			
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-couch"> Add Furniture</i>
+			</div>
 		</div>
-		<div class="col-sm-4">
-			<i class="fas fa-mouse-pointer fa-L"></i>
-			<button type="button" onclick="panTool()"> Pan Tool </button>
-		</div>
-		<div class="col-sm-4">
-			<i class="fas fa-file-import"> Import</i>
-		</div>
-		<div class="col-sm-4">
-			<i class="fas fa-file-export"> Export</i>
-		</div>
+		
+		<div style="flex: 50%;">
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-arrows-alt fa-L"></i>
+				<button type="button" onclick="panTool()" style="border-radius: 4px;background-color: Blue; color: white;"> Pan Tool </button>
+			</div>
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-font"></i>
+				<button type="button" onclick="panTool()" style="border-radius: 4px;background-color: Gray; color: white;"> Door Tool </button>
+			</div>			
+			<div class="col-sm-4" style="display: flex;">
+				<i class="fas fa-file-export"> Export</i>
+			</div>
+			<div class="col-sm-4">
+				<i class="fas fa-expand-arrows-alt"> Move Furniture</i>
+			</div>
+		</div>		
 	</div>
-	<div class="col-sm-4">
-		<i class="fas fa-arrows-alt"> Move Furniture</i>
-	</div>
-	<div class="col-sm-4">
-		<i class="fas fa-couch"> Add Furniture</i>
-	</div>
-	<div class="col-sm-4">
-		<i class="fas fa-font"> Text</i>
-	</div>
+	
 
     <div class="accordion" id="accordionExample">
         <div class="card">
