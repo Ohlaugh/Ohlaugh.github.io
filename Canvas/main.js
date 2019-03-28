@@ -8,6 +8,7 @@ var darkColor = "#000000"; //color of background grid
 var lightColor = "#DDDDDD"; //color of gray background grid
 var baseWidthpx = 40; //pixels between smaller background grid
 var darkerSize = 6; //grid squares between darker lines
+var wallPointColor = "#222222";
 
 /// end settings
 	
@@ -86,10 +87,14 @@ function drawWalls(){
 	//context.lineWidth = 10;
 	context.strokeStyle = lightColor;
 	
+	points = [];
+	
 	for(var i = Walls.length - 1; i >= 0; i--){
 		context.strokeStyle = lightColor;
 		context.lineWidth = Walls[i].thickness * 2;
 		context.beginPath();
+		points.push([Walls[i].startX + translateX, Walls[i].startY + translateY]);
+		points.push([Walls[i].endX + translateX, Walls[i].endY + translateY]);
 		context.moveTo(Walls[i].startX + translateX, Walls[i].startY + translateY);
 		context.lineTo(Walls[i].endX + translateX, Walls[i].endY + translateY);
 		//context.lineTo(canvas.width, i);
@@ -108,6 +113,16 @@ function drawWalls(){
 		// context.stroke();
 	}
 	context.lineWidth = 1;
+	console.log(points.length);
+	for(var i = 0; i < points.length; i++){
+		//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+		console.log(points[i][0], points[i][1]);
+		context.fillStyle = wallPointColor;
+		context.beginPath();
+		context.arc(points[i][0], points[i][1], 8, 0, 2 * Math.PI);
+		//context.fillStyle = "red";
+		context.fill();
+	}
 	
 }
 
