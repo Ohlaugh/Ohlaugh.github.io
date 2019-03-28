@@ -6,6 +6,7 @@ var context = canvas.getContext("2d");
 
 var darkColor = "#000000"; //color of background grid
 var lightColor = "#DDDDDD"; //color of gray background grid
+var wallColor = "#AAAAAA"; //color of gray background grid
 var baseWidthpx = 40; //pixels between smaller background grid
 var darkerSize = 6; //grid squares between darker lines
 var wallPointColor = "#222222";
@@ -23,10 +24,12 @@ var currentTool = "select";
 var floor1 = new Floor(1);
 var blueprint = new Blueprint("name");
 blueprint.add(floor1);
-blueprint.floors[0].add(table2, 10, 15);
-blueprint.floors[0].add(table, 10, 15);
-blueprint.floors[0].Walls.push(new Wall(100, 50, 400, 100, 1));
-blueprint.floors[0].Walls.push(new Wall(400, 100, 400, 500, 2));
+blueprint.floors[0].add(table2, 800 - 200 - 5, 85);
+blueprint.floors[0].add(table, 125, 85);
+blueprint.floors[0].Walls.push(new Wall(120, 80, 800, 80, 1));
+blueprint.floors[0].Walls.push(new Wall(120, 600, 800, 600, 1));
+blueprint.floors[0].Walls.push(new Wall(800, 80, 800, 600, 1));
+blueprint.floors[0].Walls.push(new Wall(120, 80, 120, 600, 1));
 blueprint.currentFloor = 0;
 blueprint.selectedObject = 0;
 window.onload = startUp;
@@ -84,13 +87,12 @@ function drawWalls(){
 	var translateX = blueprint.translateX;
 	var translateY = blueprint.translateY;
 	
-	//context.lineWidth = 10;
-	context.strokeStyle = lightColor;
+	//context.lineWidth = 10;	
 	
 	points = [];
 	
 	for(var i = Walls.length - 1; i >= 0; i--){
-		context.strokeStyle = lightColor;
+		context.strokeStyle = wallColor;
 		context.lineWidth = Walls[i].thickness * 2;
 		context.beginPath();
 		points.push([Walls[i].startX + translateX, Walls[i].startY + translateY]);
@@ -113,14 +115,10 @@ function drawWalls(){
 		// context.stroke();
 	}
 	context.lineWidth = 1;
-	console.log(points.length);
 	for(var i = 0; i < points.length; i++){
-		//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
-		console.log(points[i][0], points[i][1]);
 		context.fillStyle = wallPointColor;
 		context.beginPath();
 		context.arc(points[i][0], points[i][1], 8, 0, 2 * Math.PI);
-		//context.fillStyle = "red";
 		context.fill();
 	}
 	
