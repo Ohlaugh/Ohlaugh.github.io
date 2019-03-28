@@ -7,7 +7,11 @@ function toolSelection(event) {
 	
 	if(event.data === "panTool") {	
 		frame.contentWindow.postMessage("panTool", "*");
-	}			
+	}
+
+	if(event.data === "wallTool") {
+		frame.contentWindow.postMessage("wallTool", "*");
+	}	
 }
 		
 window.addEventListener("message", toolSelection);
