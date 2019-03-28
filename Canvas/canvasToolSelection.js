@@ -5,6 +5,10 @@ function toolSelection(event) {
 
 	if(event.data === "panTool") {
 		panTool();
+	}	
+	
+	if(event.data === "wallTool") {
+		wallTool();
 	}			
 }
 		
