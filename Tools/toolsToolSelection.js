@@ -16,9 +16,9 @@ function addFurniture(width, height, pictureID) {
 }
 
 function saveFile() {
-	
+	window.parent.postMessage("saveFile", "*");
 }
 
-function UploadFile() {
-	
+function uploadFile() {
+	window.parent.postMessage("uploadFile", "*");
 }
