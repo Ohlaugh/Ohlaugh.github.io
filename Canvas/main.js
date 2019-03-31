@@ -22,7 +22,9 @@ var currentTool = "select";
 
 
 var floor1 = new Floor(1);
+var floor2 = new Floor(2);
 var blueprint = new Blueprint("name");
+
 blueprint.add(floor1);
 blueprint.floors[0].add(table2, 800 - 200 - 5, 85);
 blueprint.floors[0].add(table, 125, 85);
@@ -30,6 +32,14 @@ blueprint.floors[0].Walls.push(new Wall(120, 80, 800, 80, 1));
 blueprint.floors[0].Walls.push(new Wall(120, 600, 800, 600, 1));
 blueprint.floors[0].Walls.push(new Wall(800, 80, 800, 600, 1));
 blueprint.floors[0].Walls.push(new Wall(120, 80, 120, 600, 1));
+
+blueprint.add(floor2);
+blueprint.floors[1].add(table2, 800 - 200 - 5, 85);
+blueprint.floors[1].Walls.push(new Wall(120, 80, 800, 80, 1));
+blueprint.floors[1].Walls.push(new Wall(120, 600, 800, 600, 1));
+blueprint.floors[1].Walls.push(new Wall(800, 80, 800, 600, 1));
+blueprint.floors[1].Walls.push(new Wall(120, 80, 120, 600, 1));
+
 blueprint.currentFloor = 0;
 blueprint.selectedObject = 0;
 window.onload = startUp;
@@ -38,10 +48,13 @@ blueprint.draw = function(){
 	drawBackGround();
 	drawWalls();
 	drawObjects();
-	
-	//blueprint.floors[currentFloor].RoomObjects.forEach(RoomObject => {
-	//})
 }
+
+blueprint.redraw = function(){
+	clearCanvas();
+	blueprint.draw();
+}
+
 
 function drawBackGround(){
 	var translateX = blueprint.translateX;
@@ -142,6 +155,24 @@ function clearCanvas(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function floorUp(){
+	if(blueprint.currentFloor >= blueprint.floorCount - 1)
+		throw new Error('Floor does not exist');
+	blueprint.currentFloor++;
+	clearCanvas();
+	blueprint.draw();
+	
+}
+
+function floorDown(){
+	if(blueprint.currentFloor <= 0)
+		throw new Error('Floor does not exist');
+	blueprint.currentFloor--;
+	clearCanvas();
+	blueprint.draw();
+	
+}
+
 function onMouseDownCanvas(){
 	isDown = true;
 	//alert("h");
@@ -182,6 +213,7 @@ function onMouseMoveCanvas(){
 	var endX = event.offsetX;
 	var endY = event.offsetY;
 
+
 	// context.beginPath();
 	// context.arc(startX, startY, 4, 0, 2 * Math.PI);
 	// context.stroke();
@@ -193,8 +225,15 @@ function onMouseMoveCanvas(){
 	
 	var currentFloor = blueprint.currentFloor;
 	var selectedObject = blueprint.selectedObject;
-	if(selectedObject >= 0)
-		blueprint.floors[currentFloor].RoomObjects[selectedObject].translate(endX - startX, endY - startY);
+	if(selectedObject >= 0){
+		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+		if(startX == undefined && startY == undefined){
+			startX = currentObject.width / 2;
+			startY = currentObject.height / 2;
+		}
+		currentObject.translate(endX - startX, endY - startY);
+		
+	}
 	
 	startX = event.offsetX;
 	startY = event.offsetY;
@@ -303,6 +342,28 @@ function panTool(){
 function wallTool(){
 	currentTool = "wall";
 	canvas.style.cursor = "";
+}
+
+function addFurniture(width, height, pictureID){
+	selectTool();
+	var currentFloor = blueprint.currentFloor;
+	var translateX = blueprint.translateX;
+	var translateY = blueprint.translateY;
+	
+	
+	var ro = new RoomObject(width, height, pictureID);
+	isDown = true;
+	startX = undefined;
+	startY = undefined;
+	
+	
+	blueprint.floors[currentFloor].add(ro, translateX, translateY);
+	
+	blueprint.selectedObject = blueprint.floors[currentFloor].RoomObjects.length - 1;
+	blueprint.bringToFront();
+				
+	blueprint.redraw();
+
 }
 
 
