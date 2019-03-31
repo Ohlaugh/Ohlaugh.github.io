@@ -24,6 +24,14 @@ function toolSelection(event) {
 	if(data[0] === "floorDown") {
 		floorDown();
 	}
+	
+	if(data[0] === "saveFile") {
+		saveFile();
+	}
+	
+	if(data[0] === "uploadFile") {
+		openFile();
+	}
 }
 		
 window.addEventListener("message", toolSelection);
