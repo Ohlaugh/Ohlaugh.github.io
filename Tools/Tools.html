@@ -3,43 +3,42 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<body>
-	This is the tools
-	<div style="display: flex;">		
-		<div style="flex: 50%;">
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-mouse-pointer fa-L"></i>
-				<button type="button" onclick="selectTool()" style="border-radius: 4px;background-color: Green; color: white;"> Select Tool </button>
+<body>	<div style="">		
+		<div style="">
+			<div class="col-sm-1 btn btn-light" style="">
+				
+				<button type="button" class="btn btn-light" onclick="selectTool()" > <i class="fas fa-mouse-pointer fa-L"></i> Select Tool </button>
 			</div>
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-draw-polygon"></i>
-				<button type="button" onclick="wallTool()" style="border-radius: 4px;background-color: Red; color: white;"> Wall Tool </button>
+			<div class="col-sm-1 btn btn-success" style="">
+			
+				<button type="button" class="btn btn-success" onclick="wallTool()" >	<i class="fas fa-draw-polygon"></i> Wall Tool </button>
 			</div>
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-file-import"> Import</i>
+			<div class="col-sm-1 btn btn-primary" style="">
+				<button class="btn btn-primary" ><i class="fas fa-file-import"> Import</i></button>
 			</div>			
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-couch"> Add Furniture</i>
+			<div class="col-sm-1 btn btn-warning" style="">
+			<button class="btn btn-warning">	<i class="fas fa-couch"> Add Furniture</i></button>
 			</div>
 		</div>
 		
-		<div style="flex: 50%;">
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-arrows-alt fa-L"></i>
-				<button type="button" onclick="panTool()" style="border-radius: 4px;background-color: Blue; color: white;"> Pan Tool </button>
+		
+		
+		
+			<div class="col-sm-4 btn btn-info" style="">
+				<button type="button" class="btn btn-info" onclick="panTool()" ><i class="fas fa-arrows-alt fa-L"></i>
+				 Pan Tool </button>
 			</div>
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-font"></i>
-				<button type="button" onclick="panTool()" style="border-radius: 4px;background-color: Gray; color: white;"> Door Tool </button>
+			<div class="col-sm-4 btn btn-dark" style="">
+				<button type="button" class="btn btn-dark" onclick="panTool()" ><i class="fas fa-font"></i> Text Tool </button>
 			</div>			
-			<div class="col-sm-4" style="display: flex;">
-				<i class="fas fa-file-export"> Export</i>
+			<div class="col-sm-4 btn btn-secondary" style="">
+					<button type="button" class="btn btn-secondary" onclick="panTool()" <i class="fas fa-file-export">  Door Tool</i> </button>
 			</div>
-			<div class="col-sm-4">
-				<i class="fas fa-expand-arrows-alt"> Move Furniture</i>
+			<div class="col-sm-4 btn btn-danger">
+				<button class="btn btn-danger"><i class="fas fa-expand-arrows-alt"> Move Furniture</i></button>
 			</div>
 		</div>		
-	</div>
+
 	
 
 </br>
@@ -55,7 +54,7 @@
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
-					//insert furniture artwork here
+				<button type = "button"> <img src = ~\Chair.png"> </button>
 			 </div>
             </div>
         </div>
