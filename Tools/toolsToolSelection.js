@@ -9,3 +9,8 @@ function panTool() {
 function wallTool() {			
 	window.parent.postMessage("wallTool", "*");
 }
+
+function addFurniture(width, height, pictureID) {
+	var args = width +"," + height + "," + pictureID;
+	window.parent.postMessage("addFurniture," + args, "*");
+}
