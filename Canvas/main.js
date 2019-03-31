@@ -26,15 +26,12 @@ var floor2 = new Floor(2);
 var blueprint = new Blueprint("name");
 
 blueprint.add(floor1);
-blueprint.floors[0].add(table2, 800 - 200 - 5, 85);
-blueprint.floors[0].add(table, 125, 85);
 blueprint.floors[0].Walls.push(new Wall(120, 80, 800, 80, 1));
 blueprint.floors[0].Walls.push(new Wall(120, 600, 800, 600, 1));
 blueprint.floors[0].Walls.push(new Wall(800, 80, 800, 600, 1));
 blueprint.floors[0].Walls.push(new Wall(120, 80, 120, 600, 1));
 
 blueprint.add(floor2);
-blueprint.floors[1].add(table2, 800 - 200 - 5, 85);
 blueprint.floors[1].Walls.push(new Wall(120, 80, 800, 80, 1));
 blueprint.floors[1].Walls.push(new Wall(120, 600, 800, 600, 1));
 blueprint.floors[1].Walls.push(new Wall(800, 80, 800, 600, 1));
