@@ -1,17 +1,23 @@
 var frame = document.getElementById("canvasFrame");
 
 function toolSelection(event) {
-	if(event.data === "selectTool") {
+	var data = event.data.split(",");
+	
+	if(data[0] === "selectTool") {
 		frame.contentWindow.postMessage("selectTool", "*");
 	}
 	
-	if(event.data === "panTool") {	
+	if(data[0] === "panTool") {	
 		frame.contentWindow.postMessage("panTool", "*");
 	}
 
-	if(event.data === "wallTool") {
+	if(data[0] === "wallTool") {
 		frame.contentWindow.postMessage("wallTool", "*");
-	}	
+	}
+	
+	if(data[0] === "addFurniture") {
+		frame.contentWindow.postMessage(event.data, "*");
+	}
 }
 		
 window.addEventListener("message", toolSelection);
