@@ -18,6 +18,14 @@ function toolSelection(event) {
 	if(data[0] === "addFurniture") {
 		frame.contentWindow.postMessage(event.data, "*");
 	}
+	
+	if(data[0] === "floorUp") {
+		frame.contentWindow.postMessage("floorUp", "*");
+	}
+	
+	if(data[0] === "floorDown") {
+		frame.contentWindow.postMessage("floorDown", "*");
+	}
 }
 		
 window.addEventListener("message", toolSelection);
