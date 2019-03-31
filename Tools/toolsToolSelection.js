@@ -14,3 +14,11 @@ function addFurniture(width, height, pictureID) {
 	var args = width +"," + height + "," + pictureID;
 	window.parent.postMessage("addFurniture," + args, "*");
 }
+
+function saveFile() {
+	
+}
+
+function UploadFile() {
+	
+}
