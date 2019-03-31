@@ -67,6 +67,7 @@ function copyWalls(walls){ //returns the list of floors
 }
 
 function saveFile(){
+	isSaved = true;
 	var text = JSON.stringify(blueprint)
 	var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
 	saveAs(blob, blueprint.name + ".ryr");

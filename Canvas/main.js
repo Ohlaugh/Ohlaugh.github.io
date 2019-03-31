@@ -18,7 +18,7 @@ var startX;
 var startY;
 var isDown = false;
 var currentTool = "select";
-
+var isSaved = true;
 
 
 var floor1 = new Floor(1);
@@ -223,6 +223,7 @@ function onMouseMoveCanvas(){
 	var currentFloor = blueprint.currentFloor;
 	var selectedObject = blueprint.selectedObject;
 	if(selectedObject >= 0){
+		isSaved = false;
 		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
 		if(startX == undefined && startY == undefined){
 			startX = currentObject.width / 2;
@@ -342,6 +343,7 @@ function wallTool(){
 }
 
 function addFurniture(width, height, pictureID){
+	isSaved = false;
 	selectTool();
 	var currentFloor = blueprint.currentFloor;
 	var translateX = blueprint.translateX;
@@ -376,9 +378,15 @@ function startUp(){
 	canvas.addEventListener("mouseup", handelMouseUp);
 	canvas.addEventListener("mousemove", handelMouseMove);
 	window.addEventListener("resize", resize);
-	
+	window.onbeforeunload = function(e) {
+		if(!isSaved)
+			return 'hello world';
+    };
 	//blueprint.draw();
 }
+
+
+
 
 /*
 
