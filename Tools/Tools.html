@@ -6,37 +6,28 @@
 <meta name="viewport" content="width=device-width" />
 
 <body>	
-	<div class="col-sm-1 btn btn-light" style="">				
-		<button type="button" class="btn btn-light" onclick="selectTool()" > <i class="fas fa-mouse-pointer fa-L"></i> Select Tool </button>
+	<div class="col-sm-1 btn btn-light" onclick="selectTool()">
+		<i class="fas fa-mouse-pointer fa-L"> Select Tool</i>
 	</div>
 
-	<div class="col-sm-1 btn btn-success" style="">			
-		<button type="button" class="btn btn-success" onclick="wallTool()" >	<i class="fas fa-draw-polygon"></i> Wall Tool </button>
+	<div class="col-sm-1 btn btn-success" onclick="wallTool()">	
+		<i class="fas fa-draw-polygon"> Wall Tool</i> 
 	</div>
 
-	<div class="col-sm-1 btn btn-primary" style="">
-		<button class="btn btn-primary" ><i class="fas fa-file-import"> Import</i></button>
+	<div class="col-sm-1 btn btn-primary" onclick="import()">
+		<i class="fas fa-file-import"> Import</i>
 	</div>	
 
-	<div class="col-sm-1 btn btn-warning" style="">
-		<button class="btn btn-warning">	<i class="fas fa-couch"> Add Furniture</i></button>
+	<div class="col-sm-4 btn btn-info" onclick="panTool()">
+		<i class="fas fa-arrows-alt fa-L"> Pan Tool</i>
 	</div>
 
-	<div class="col-sm-4 btn btn-info" style="">
-		<button type="button" class="btn btn-info" onclick="panTool()" ><i class="fas fa-arrows-alt fa-L"></i>
-		 Pan Tool </button>
-	</div>
-
-	<div class="col-sm-4 btn btn-dark" style="">
-		<button type="button" class="btn btn-dark" onclick="panTool()" ><i class="fas fa-font"></i> Text Tool </button>
+	<div class="col-sm-4 btn btn-dark" onclick="panTool()">
+		<i class="fas fa-font"> Text Tool</i>  
 	</div>	
 
-	<div class="col-sm-4 btn btn-secondary" style="">
-			<button type="button" class="btn btn-secondary" onclick="panTool()" <i class="fas fa-file-export">  Door Tool</i> </button>
-	</div>
-
-	<div class="col-sm-4 btn btn-danger">
-		<button class="btn btn-danger"><i class="fas fa-expand-arrows-alt"> Move Furniture</i></button>
+	<div class="col-sm-4 btn btn-secondary" onclick="export()">
+		<i class="fas fa-file-export"> Save</i> 
 	</div>	
 	</br>
     <div class="accordion" id="accordionExample">
@@ -50,16 +41,36 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">				
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(225,178,'couchCorner')"> <img src = "../Canvas/Furniture/Couch-Corner.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(174,100,'couchMediumB')"> <img src = "../Canvas/Furniture/Couch-Medium_B.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(250,100,'couchLargeB')"> <img src = "../Canvas/Furniture/Couch-Large_B.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(63,75,'chair1')"> <img src = "../Canvas/Furniture/Chair_1.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(71,75,'chair2')"> <img src = "../Canvas/Furniture/Chair_2.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(63,75,'chair3')"> <img src = "../Canvas/Furniture/Chair-Small_3.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(75,75,'chairRound')"> <img src = "../Canvas/Furniture/Chair-Round.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(100,100,'chairLargeA')"> <img src = "../Canvas/Furniture/Chair-Large_A.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(197,100,'couchLargeA')"> <img src = "../Canvas/Furniture/Couch-Large_A.png" style="width:100%" </button>
-					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(120,100,'chairLargeB')"> <img src = "../Canvas/Furniture/Chair-Large_B.png" style="width:100%" </button>				
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(225,178,'couchCorner')"> 
+						<img src = "../Canvas/Furniture/Couch-Corner.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(174,100,'couchMediumB')"> 
+						<img src = "../Canvas/Furniture/Couch-Medium_B.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(250,100,'couchLargeB')"> 
+						<img src = "../Canvas/Furniture/Couch-Large_B.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(63,75,'chair1')"> 
+						<img src = "../Canvas/Furniture/Chair_1.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(71,75,'chair2')"> 
+						<img src = "../Canvas/Furniture/Chair_2.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(63,75,'chair3')"> 
+						<img src = "../Canvas/Furniture/Chair-Small_3.png" style="width:100%">
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(75,75,'chairRound')"> 
+						<img src = "../Canvas/Furniture/Chair-Round.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(100,100,'chairLargeA')"> 
+						<img src = "../Canvas/Furniture/Chair-Large_A.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(197,100,'couchLargeA')"> 
+						<img src = "../Canvas/Furniture/Couch-Large_A.png" style="width:100%"> 
+					</button>
+					<button type = "button" style="width:50%; height: 100" onclick="addFurniture(120,100,'chairLargeB')"> 
+						<img src = "../Canvas/Furniture/Chair-Large_B.png" style="width:100%"> 
+					</button>				
 				</div>
             </div>
         </div>
@@ -73,9 +84,15 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">                
-					<button type = "button" onclick="addFurniture(150,150,'tableCircle')"> <img src = "../Not Actual Code/Graphics/Furniture/Table-Circle.png"> </button>					
-					<button type = "button" onclick="addFurniture(100,150,'tableRectangle')"> <img src = "../Not Actual Code/Graphics/Furniture/Table-Rectangle.png"> </button>				
-					<button type = "button" onclick="addFurniture(120,120,'tableSquare')"> <img src = "../Not Actual Code/Graphics/Furniture/Table-Square.png"> </button>  
+					<button type = "button" onclick="addFurniture(150,150,'tableCircle')"> 
+						<img src = "../Not Actual Code/Graphics/Furniture/Table-Circle.png"> 
+					</button>					
+					<button type = "button" onclick="addFurniture(100,150,'tableRectangle')"> 
+						<img src = "../Not Actual Code/Graphics/Furniture/Table-Rectangle.png"> 
+					</button>				
+					<button type = "button" onclick="addFurniture(120,120,'tableSquare')"> 
+						<img src = "../Not Actual Code/Graphics/Furniture/Table-Square.png"> 
+					</button>  
 				</div>
             </div>
         </div>
