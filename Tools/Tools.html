@@ -3,45 +3,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<body>	<div style="">		
-		<div style="">
-			<div class="col-sm-1 btn btn-light" style="">
-				
-				<button type="button" class="btn btn-light" onclick="selectTool()" > <i class="fas fa-mouse-pointer fa-L"></i> Select Tool </button>
-			</div>
-			<div class="col-sm-1 btn btn-success" style="">
-			
-				<button type="button" class="btn btn-success" onclick="wallTool()" >	<i class="fas fa-draw-polygon"></i> Wall Tool </button>
-			</div>
-			<div class="col-sm-1 btn btn-primary" style="">
-				<button class="btn btn-primary" ><i class="fas fa-file-import"> Import</i></button>
-			</div>			
-			<div class="col-sm-1 btn btn-warning" style="">
-			<button class="btn btn-warning">	<i class="fas fa-couch"> Add Furniture</i></button>
-			</div>
-		</div>
-		
-		
-		
-		
-			<div class="col-sm-4 btn btn-info" style="">
-				<button type="button" class="btn btn-info" onclick="panTool()" ><i class="fas fa-arrows-alt fa-L"></i>
-				 Pan Tool </button>
-			</div>
-			<div class="col-sm-4 btn btn-dark" style="">
-				<button type="button" class="btn btn-dark" onclick="panTool()" ><i class="fas fa-font"></i> Text Tool </button>
-			</div>			
-			<div class="col-sm-4 btn btn-secondary" style="">
-					<button type="button" class="btn btn-secondary" onclick="panTool()" <i class="fas fa-file-export">  Door Tool</i> </button>
-			</div>
-			<div class="col-sm-4 btn btn-danger">
-				<button class="btn btn-danger"><i class="fas fa-expand-arrows-alt"> Move Furniture</i></button>
-			</div>
-		</div>		
 
-	
+<body>	
+	<div class="col-sm-1 btn btn-light" style="">				
+		<button type="button" class="btn btn-light" onclick="selectTool()" > <i class="fas fa-mouse-pointer fa-L"></i> Select Tool </button>
+	</div>
 
-</br>
+	<div class="col-sm-1 btn btn-success" style="">			
+		<button type="button" class="btn btn-success" onclick="wallTool()" >	<i class="fas fa-draw-polygon"></i> Wall Tool </button>
+	</div>
+
+	<div class="col-sm-1 btn btn-primary" style="">
+		<button class="btn btn-primary" ><i class="fas fa-file-import"> Import</i></button>
+	</div>	
+
+	<div class="col-sm-1 btn btn-warning" style="">
+		<button class="btn btn-warning">	<i class="fas fa-couch"> Add Furniture</i></button>
+	</div>
+
+	<div class="col-sm-4 btn btn-info" style="">
+		<button type="button" class="btn btn-info" onclick="panTool()" ><i class="fas fa-arrows-alt fa-L"></i>
+		 Pan Tool </button>
+	</div>
+
+	<div class="col-sm-4 btn btn-dark" style="">
+		<button type="button" class="btn btn-dark" onclick="panTool()" ><i class="fas fa-font"></i> Text Tool </button>
+	</div>	
+
+	<div class="col-sm-4 btn btn-secondary" style="">
+			<button type="button" class="btn btn-secondary" onclick="panTool()" <i class="fas fa-file-export">  Door Tool</i> </button>
+	</div>
+
+	<div class="col-sm-4 btn btn-danger">
+		<button class="btn btn-danger"><i class="fas fa-expand-arrows-alt"> Move Furniture</i></button>
+	</div>	
+	</br>
     <div class="accordion" id="accordionExample">
         <div class="card">
             <div class="card-header" id="headingOne">
@@ -51,31 +47,34 @@
                     </button>
                 </h5>
             </div>
-
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-				<button type = "button" onclick="addFurniture(63,75,'chair1')"> <img src = "../Canvas/Furniture/Chair_1.png"> </button>
-				<button type = "button" onclick="addFurniture(71,75,'chair2')"> <img src = "../Canvas/Furniture/Chair_2.png"> </button>
-				<button type = "button" onclick="addFurniture(63,75,'chair3')"> <img src = "../Canvas/Furniture/Chair-Small_3.png"> </button>
-				<button type = "button" onclick="addFurniture(75,75,'chairRound')"> <img src = "../Canvas/Furniture/Chair-Round.png"> </button>
-				<button type = "button" onclick="addFurniture(100,100,'chairLargeA')"> <img src = "../Canvas/Furniture/Chair-Large_A"> </button>
-				<button type = "button" onclick="addFurniture(197,100,'couchLargeA')"> <img src = "../Canvas/Furniture/Couch-Large_A.png"> </button>
-				<button type = "button" onclick="addFurniture(120,100,'chairLargeB')"> <img src = "../Canvas/Furniture/Chair-Large_B"> </button>
-				
-			 </div>
+                <div class="card-body">				
+					<button type = "button" onclick="addFurniture(225,178,'couchCorner')"> <img src = "../Canvas/Furniture/Couch-Corner.png"> </button>
+					<button type = "button" onclick="addFurniture(174,100,'couchMediumB')"> <img src = "../Canvas/Furniture/Couch-Medium_B.png"> </button>
+					<button type = "button" onclick="addFurniture(250,100,'couchLargeB')"> <img src = "../Canvas/Furniture/Couch-Large_B.png"> </button>
+					<button type = "button" onclick="addFurniture(63,75,'chair1')"> <img src = "../Canvas/Furniture/Chair_1.png"> </button>
+					<button type = "button" onclick="addFurniture(71,75,'chair2')"> <img src = "../Canvas/Furniture/Chair_2.png"> </button>
+					<button type = "button" onclick="addFurniture(63,75,'chair3')"> <img src = "../Canvas/Furniture/Chair-Small_3.png"> </button>
+					<button type = "button" onclick="addFurniture(75,75,'chairRound')"> <img src = "../Canvas/Furniture/Chair-Round.png"> </button>
+					<button type = "button" onclick="addFurniture(100,100,'chairLargeA')"> <img src = "../Canvas/Furniture/Chair-Large_A.png"> </button>
+					<button type = "button" onclick="addFurniture(197,100,'couchLargeA')"> <img src = "../Canvas/Furniture/Couch-Large_A.png"> </button>
+					<button type = "button" onclick="addFurniture(120,100,'chairLargeB')"> <img src = "../Canvas/Furniture/Chair-Large_B.png"> </button>				
+				</div>
             </div>
         </div>
         <div class="card">
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Tables
+						Tables
                     </button>
                 </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                //insert furniture artwork here
+                <div class="card-body">                
+					<button type = "button" onclick="addFurniture(150,150,'tableCircle')"> <img src = "../Not Actual Code/Graphics/Furniture/Table-Circle.png"> </button>					
+					<button type = "button" onclick="addFurniture(100,150,'tableRectangle')"> <img src = "../Not Actual Code/Graphics/Furniture/Table-Rectangle.png"> </button>				
+					<button type = "button" onclick="addFurniture(120,120,'tableSquare')"> <img src = "../Not Actual Code/Graphics/Furniture/Table-Square.png"> </button>  
 				</div>
             </div>
         </div>
@@ -89,8 +88,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
-                //insert furniture artwork here
-				
+					//insert furniture artwork here				
 				</div>
             </div>
         </div>
