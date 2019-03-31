@@ -356,8 +356,8 @@ function addFurniture(width, height, pictureID){
 	startX = undefined;
 	startY = undefined;
 	
-	
-	blueprint.floors[currentFloor].add(ro, translateX, translateY);
+	//negative translates as we want it added at relative 0, 0
+	blueprint.floors[currentFloor].add(ro, -translateX, -translateY);
 	
 	blueprint.selectedObject = blueprint.floors[currentFloor].RoomObjects.length - 1;
 	blueprint.bringToFront();
