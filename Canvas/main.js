@@ -37,8 +37,16 @@ blueprint.floors[1].Walls.push(new Wall(120, 600, 800, 600, 1));
 blueprint.floors[1].Walls.push(new Wall(800, 80, 800, 600, 1));
 blueprint.floors[1].Walls.push(new Wall(120, 80, 120, 600, 1));
 
+blueprint.floors[0].add(new RoomObject(63, 75, "chair3"), 450, 500);
+blueprint.floors[0].RoomObjects[0].rotation = 180;
+
+blueprint.floors[0].add(new RoomObject(150, 150, "tableCircle"), 405, 350);
 blueprint.currentFloor = 0;
 blueprint.selectedObject = 0;
+
+
+
+
 window.onload = startUp;
 
 blueprint.draw = function(){
@@ -143,8 +151,25 @@ function drawObjects(){
 	
 	for(var i = Objects.length - 1; i >= 0; i--){
 		var img = document.getElementById(Objects[i].pictureID);
-		context.drawImage(img, Objects[i].x + translateX, Objects[i].y + translateY, Objects[i].width, Objects[i].height);
+		if(Objects[i].rotation){
+			rotateAndPaintImage(img, Objects[i].rotation ,Objects[i].x + translateX, Objects[i].y + translateY, Objects[i].width, Objects[i].height);
+		}else{
+			context.drawImage(img, Objects[i].x + translateX, Objects[i].y + translateY, Objects[i].width, Objects[i].height);			
+		}
 	}	
+}
+
+function rotateAndPaintImage(img, angleInDeg , positionX, positionY, sizeX, sizeY ) {
+	var angleInRad = angleInDeg*Math.PI/180
+	
+	positionX += sizeX/2;
+	positionY += sizeY/2;
+	
+	context.translate(positionX, positionY);
+	context.rotate(angleInRad);
+	context.drawImage(img, -sizeX/2, -sizeY/2, sizeX, sizeY);
+	context.rotate(-angleInRad);
+	context.translate(-positionX, -positionY);
 }
 
 
