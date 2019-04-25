@@ -8,7 +8,7 @@ var darkColor = "#000000"; //color of background grid
 var lightColor = "#DDDDDD"; //color of gray background grid
 var wallColor = "#AAAAAA"; //color of gray background grid
 var baseWidthpx = 40; //pixels between smaller background grid
-var darkerSize = 6; //grid squares between darker lines
+var darkerSize = 4; //grid squares between darker lines
 var wallPointColor = "#222222";
 
 /// end settings
