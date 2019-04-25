@@ -11,6 +11,8 @@ var baseWidthpx = 40; //pixels between smaller background grid
 var darkerSize = 4; //grid squares between darker lines
 var wallPointColor = "#222222";
 
+var wallPointRadius = 6;
+
 /// end settings
 	
 
@@ -39,8 +41,9 @@ blueprint.floors[1].Walls.push(new Wall(120, 80, 120, 600, 1));
 
 blueprint.floors[0].add(new RoomObject(63, 75, "chair3"), 450, 500);
 blueprint.floors[0].RoomObjects[0].rotation = 180;
-
 blueprint.floors[0].add(new RoomObject(150, 150, "tableCircle"), 405, 350);
+
+
 blueprint.currentFloor = 0;
 blueprint.selectedObject = 0;
 
@@ -136,7 +139,7 @@ function drawWalls(){
 	for(var i = 0; i < points.length; i++){
 		context.fillStyle = wallPointColor;
 		context.beginPath();
-		context.arc(points[i][0], points[i][1], 8, 0, 2 * Math.PI);
+		context.arc(points[i][0], points[i][1], wallPointRadius, 0, 2 * Math.PI);
 		context.fill();
 	}
 	
@@ -410,13 +413,16 @@ function startUp(){
 	//blueprint.draw();
 }
 
-
-
-
-/*
-
-CanvasRenderingContext2D.translate()
-Adds a translation transformation by moving the canvas and its origin x horzontally and y vertically on the grid.
-
-
-*/
+function updateObject(x, y, width, height, pictureID, rotation){
+	var selectedObject = blueprint.selectedObject;
+	var currentFloor = blueprint.currentFloor;
+	var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+	currentObject.x = x;
+	currentObject.y = y;
+	currentObject.width = width;
+	currentObject.height = height;
+	currentObject.pictureID = pictureID;
+	currentObject.rotation = rotation;
+	
+	blueprint.redraw();
+}
