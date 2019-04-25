@@ -11,6 +11,8 @@ var baseWidthpx = 40; //pixels between smaller background grid
 var darkerSize = 6; //grid squares between darker lines
 var wallPointColor = "#222222";
 
+var wallPointRadius = 6;
+
 /// end settings
 	
 
@@ -137,7 +139,7 @@ function drawWalls(){
 	for(var i = 0; i < points.length; i++){
 		context.fillStyle = wallPointColor;
 		context.beginPath();
-		context.arc(points[i][0], points[i][1], 8, 0, 2 * Math.PI);
+		context.arc(points[i][0], points[i][1], wallPointRadius, 0, 2 * Math.PI);
 		context.fill();
 	}
 	
@@ -424,12 +426,3 @@ function updateObject(x, y, width, height, pictureID, rotation){
 	
 	blueprint.redraw();
 }
-
-
-/*
-
-CanvasRenderingContext2D.translate()
-Adds a translation transformation by moving the canvas and its origin x horzontally and y vertically on the grid.
-
-
-*/

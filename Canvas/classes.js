@@ -90,7 +90,7 @@ class RoomObject {
 
 class Wall {
 	constructor(startX, startY, endX, endY, id){
-		this.thickness = 5;
+		this.thickness = 4;
 		this.startX = startX;
 		this.startY = startY;
 		this.endX = endX;
