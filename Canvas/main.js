@@ -39,8 +39,9 @@ blueprint.floors[1].Walls.push(new Wall(120, 80, 120, 600, 1));
 
 blueprint.floors[0].add(new RoomObject(63, 75, "chair3"), 450, 500);
 blueprint.floors[0].RoomObjects[0].rotation = 180;
-
 blueprint.floors[0].add(new RoomObject(150, 150, "tableCircle"), 405, 350);
+
+
 blueprint.currentFloor = 0;
 blueprint.selectedObject = 0;
 
@@ -410,7 +411,19 @@ function startUp(){
 	//blueprint.draw();
 }
 
-
+function updateObject(x, y, width, height, pictureID, rotation){
+	var selectedObject = blueprint.selectedObject;
+	var currentFloor = blueprint.currentFloor;
+	var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+	currentObject.x = x;
+	currentObject.y = y;
+	currentObject.width = width;
+	currentObject.height = height;
+	currentObject.pictureID = pictureID;
+	currentObject.rotation = rotation;
+	
+	blueprint.redraw();
+}
 
 
 /*
