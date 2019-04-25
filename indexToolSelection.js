@@ -34,6 +34,10 @@ function toolSelection(event) {
 	if(data[0] === "uploadFile") {
 		frame.contentWindow.postMessage("uploadFile", "*");
 	}
+	
+	if(data[0] === "updateObject") {
+		frame.contentWindow.postMessage(event.data, "*");
+	}
 }
 		
 window.addEventListener("message", toolSelection);
