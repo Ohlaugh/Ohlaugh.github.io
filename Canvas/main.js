@@ -13,7 +13,7 @@ var wallPointColor = "#222222";
 
 var wallPointRadius = 6;
 
-var wallClipping = 100;
+var wallClipping = 40;
 /// end settings
 	
 
@@ -314,7 +314,8 @@ function onMouseDownWall(){
 	
 	var currentFloor = blueprint.currentFloor;
 	
-	blueprint.floors[currentFloor].addWall(startX - blueprint.translateX, startY -	 blueprint.translateY);
+	blueprint.floors[currentFloor].addWall(startX, startY);
+	blueprint.redraw();
 }
 
 function onMouseUpWall(){
@@ -358,17 +359,17 @@ function onMouseMoveWall(){
 	
 }
 
-function getClippedValue(value, translation){
-	value = value + wallClipping / 2 - (value + wallClipping / 2) % wallClipping;
-	translation = translation % wallClipping
-	if(translation >= wallClipping/2){
-		console.log(value + translation);
-		return value + translation;
-	} else {
-		console.log(value - translation);
-		return value - translation;
-	}
-}
+// function getClippedValue(value, translation){
+	// value = value + wallClipping / 2 - (value + wallClipping / 2) % wallClipping;
+	// translation = translation % wallClipping
+	// if(translation >= wallClipping/2){
+		// console.log(value + translation);
+		// return value + translation;
+	// } else {
+		// console.log(value - translation);
+		// return value - translation;
+	// }
+// }
 
 function handelMouseDown(){
 	if(currentTool == "select"){
@@ -472,9 +473,22 @@ function updateObject(x, y, width, height, pictureID, rotation){
 	blueprint.redraw();
 }
 
+function getClippedValue(value, trans){
+	value = value + trans;
+	return value + wallClipping/2 - mod((value + wallClipping/2), wallClipping);
+}
+function f(value, trans){
+	value = value + trans;
+	return value + wallClipping/2 - ((value + wallClipping/2) % wallClipping);
+}
 
-
-function f(value, t){
-    value = value - t + 5 - ( ( value - t + 10/2 ) % 10) + t;
-	return value;
+function getClippedValueOld(value, t){
+    value = ((value - t) + wallClipping/2 - mod( ( value - t + wallClipping/2 ), wallClipping)) + t;
+	return value - t % wallClipping;
+}
+function mod(i,j){
+	if(i < 0)
+		return i % j + j;
+	else 
+		return i % j;
 }
