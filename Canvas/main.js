@@ -493,8 +493,6 @@ function deleteObject(){
 	blueprint.redraw();
 }
 
-splice 
-
 function keypress(e){
 	var key = String.fromCharCode(e.keyCode);
 	if(key == "z"){
