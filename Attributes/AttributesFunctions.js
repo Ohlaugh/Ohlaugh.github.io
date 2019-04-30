@@ -11,8 +11,8 @@ function updateObject(width, height, rotation) {
 		x = globalX;
 		y = globalY;
 		pictureID = globalID;
-		var calcWidth = parseInt(width)*40;
-		var calcHeight = parseInt(height)*40;
+		var calcWidth = parseFloat(width)*40;
+		var calcHeight = parseFloat(height)*40;
 		var args = x + "," + y + "," + calcWidth + "," + calcHeight + "," + pictureID + "," + rotation;
 		window.parent.postMessage("updateObject,"+ args, "*");
 	}
@@ -22,7 +22,7 @@ function toolSelection(event) {
 	var data = event.data.split(",");
 	
 	if(data[0] === "objectSelected") {
-		autoFill(parseInt(data[1]),parseInt(data[2]),parseInt(data[3]),parseInt(data[4]),data[5],parseInt(data[6]));
+		autoFill(parseFloat(data[1]),parseFloat(data[2]),parseFloat(data[3]),parseFloat(data[4]),data[5],parseFloat(data[6]));
 	}
 }
 
