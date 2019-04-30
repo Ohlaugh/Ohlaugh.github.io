@@ -476,11 +476,40 @@ function resize(){
 	blueprint.draw();
 }
 
+function undo(){
+	var currentFloor = blueprint.currentFloor;
+	blueprint.floors[currentFloor].Walls.pop();
+	blueprint.redraw();
+}
+
+function deleteObject(){
+	var currentFloor = blueprint.currentFloor;
+	var selectedObject = blueprint.selectedObject;
+	if(selectedObject != undefined){
+		blueprint.floors[currentFloor].RoomObjects.splice(selectedObject, 1);
+		blueprint.selectedObject = undefined;
+		objectSelected("","","","","","");
+	}
+	blueprint.redraw();
+}
+
+splice 
+
+function keypress(e){
+	var key = String.fromCharCode(e.keyCode);
+	if(key == "z"){
+		undo();
+	} else if(key == "d"){
+		deleteObject();
+	}
+}
+
 function startUp(){
 	resize();
 	canvas.addEventListener("mousedown", handelMouseDown);
 	canvas.addEventListener("mouseup", handelMouseUp);
 	canvas.addEventListener("mousemove", handelMouseMove);
+	window.addEventListener("keypress", keypress, false);
 	window.addEventListener("resize", resize);
 	window.onbeforeunload = function(e) {
 		if(!isSaved)
