@@ -1,9 +1,0 @@
-
-
- function autoFill(width, height, pictureID, x, y) {
-	var heightfeet = height/40;
-  var widthfeet = width/40;
-    document.getElementById('inputWidth').value = widthfeet
-		document.getElementById('inputLength').value = heightfeet
-  }
-
