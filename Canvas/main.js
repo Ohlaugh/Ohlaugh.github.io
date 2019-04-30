@@ -25,7 +25,7 @@ var isSaved = true;
 
 
 var floor1 = new Floor(1);
-var floor2 = new Floor(2);
+//var floor2 = new Floor(2);
 var blueprint = new Blueprint("name");
 
 blueprint.add(floor1);
@@ -34,11 +34,11 @@ blueprint.floors[0].Walls.push(new Wall(120, 600, 800, 600, 1));
 blueprint.floors[0].Walls.push(new Wall(800, 80, 800, 600, 1));
 blueprint.floors[0].Walls.push(new Wall(120, 80, 120, 600, 1));
 
-blueprint.add(floor2);
-blueprint.floors[1].Walls.push(new Wall(120, 80, 800, 80, 1));
-blueprint.floors[1].Walls.push(new Wall(120, 600, 800, 600, 1));
-blueprint.floors[1].Walls.push(new Wall(800, 80, 800, 600, 1));
-blueprint.floors[1].Walls.push(new Wall(120, 80, 120, 600, 1));
+// blueprint.add(floor2);
+// blueprint.floors[1].Walls.push(new Wall(120, 80, 800, 80, 1));
+// blueprint.floors[1].Walls.push(new Wall(120, 600, 800, 600, 1));
+// blueprint.floors[1].Walls.push(new Wall(800, 80, 800, 600, 1));
+// blueprint.floors[1].Walls.push(new Wall(120, 80, 120, 600, 1));
 
 blueprint.floors[0].add(new RoomObject(63, 75, "chair3"), 450, 500);
 blueprint.floors[0].RoomObjects[0].rotation = 180;
@@ -239,6 +239,12 @@ function onMouseUpCanvas(){
 	// context.lineTo(endX, endY);
 	// context.stroke();
 	
+	var currentFloor = blueprint.currentFloor;
+	var selectedObject = blueprint.selectedObject;
+	if(selectedObject != undefined){
+		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+		objectSelected(currentObject.x, currentObject.y, currentObject.width, currentObject.height, currentObject.pictureID, currentObject.rotation);
+	}
 	blueprint.draw();
 
 	
@@ -275,6 +281,12 @@ function onMouseMoveCanvas(){
 		
 	}
 	
+	var currentFloor = blueprint.currentFloor;
+	var selectedObject = blueprint.selectedObject;
+	if(selectedObject != undefined){
+		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+		objectSelected(currentObject.x, currentObject.y, currentObject.width, currentObject.height, currentObject.pictureID, currentObject.rotation);
+	}
 	startX = event.offsetX;
 	startY = event.offsetY;
 	
@@ -427,7 +439,7 @@ function wallTool(){
 function addFurniture(width, height, pictureID){
 	isSaved = false;
 	selectTool();
-	var currentFloor = blueprint.currentFloor;
+	var currentFloor = currentFloor ? currentFloor : blueprint.currentFloor;
 	var translateX = blueprint.translateX;
 	var translateY = blueprint.translateY;
 	
@@ -442,7 +454,17 @@ function addFurniture(width, height, pictureID){
 	
 	blueprint.selectedObject = blueprint.floors[currentFloor].RoomObjects.length - 1;
 	blueprint.bringToFront();
-				
+	
+	
+	if(pictureID == "stairs" &&  currentFloor >= blueprint.floors.length - 1){
+		var currentFloorObject = blueprint.floors[currentFloor];
+		
+		var newFloor = new Floor(blueprint.floors.length);
+		newFloor.Walls = copyWalls(currentFloorObject.Walls);
+		blueprint.add(newFloor);
+		//addFurniture(width, height, pictureID, currentFloor + 1)
+	}
+	
 	blueprint.redraw();
 
 }
