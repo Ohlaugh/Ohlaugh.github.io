@@ -1,6 +1,6 @@
 
 
-function autoFill(width, height, x, y, pictureID) {
+function autoFill(x, y, width, height, pictureID) {
 	var heightfeet = height/40;
 	var widthfeet = width/40;
 	document.getElementById('inputWidth').value = widthfeet;
