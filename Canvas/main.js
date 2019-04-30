@@ -507,15 +507,7 @@ function getClippedValue(value, trans){
 	value = value + trans;
 	return value + wallClipping/2 - mod((value + wallClipping/2), wallClipping);
 }
-function f(value, trans){
-	value = value + trans;
-	return value + wallClipping/2 - ((value + wallClipping/2) % wallClipping);
-}
 
-function getClippedValueOld(value, t){
-    value = ((value - t) + wallClipping/2 - mod( ( value - t + wallClipping/2 ), wallClipping)) + t;
-	return value - t % wallClipping;
-}
 function mod(i,j){
 	if(i < 0)
 		return i % j + j;
