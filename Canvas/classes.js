@@ -12,7 +12,7 @@ class Blueprint {
 	add(floor, onTop = true){
 		if(onTop){
 			this.floors.push(floor);
-			this.currentFloor++;
+			//this.currentFloor++;
 		} else {
 			this.floors.unshift(floor);
 		}
