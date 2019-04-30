@@ -239,6 +239,12 @@ function onMouseUpCanvas(){
 	// context.lineTo(endX, endY);
 	// context.stroke();
 	
+	var currentFloor = blueprint.currentFloor;
+	var selectedObject = blueprint.selectedObject;
+	if(selectedObject != undefined){
+		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+		objectSelected(currentObject.x, currentObject.y, currentObject.width, currentObject.height, currentObject.pictureID, currentObject.rotation);
+	}
 	blueprint.draw();
 
 	
@@ -275,6 +281,12 @@ function onMouseMoveCanvas(){
 		
 	}
 	
+	var currentFloor = blueprint.currentFloor;
+	var selectedObject = blueprint.selectedObject;
+	if(selectedObject != undefined){
+		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+		objectSelected(currentObject.x, currentObject.y, currentObject.width, currentObject.height, currentObject.pictureID, currentObject.rotation);
+	}
 	startX = event.offsetX;
 	startY = event.offsetY;
 	
