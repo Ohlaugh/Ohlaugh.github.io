@@ -212,6 +212,9 @@ function onMouseDownCanvas(){
 		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
 		objectSelected(currentObject.x, currentObject.y, currentObject.width, currentObject.height, currentObject.pictureID, currentObject.rotation);
 	}
+	else {
+		objectSelected("","","","","","");
+	}	
 	// context.beginPath();
 	// context.arc(startX, startY, 4, 0, 2 * Math.PI);
 	// context.stroke();
