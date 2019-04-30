@@ -1,4 +1,5 @@
 var frame = document.getElementById("canvasFrame");
+var attributesFrame = document.getElementById("attributesFrame")
 
 function toolSelection(event) {
 	var data = event.data.split(",");
@@ -37,6 +38,10 @@ function toolSelection(event) {
 	
 	if(data[0] === "updateObject") {
 		frame.contentWindow.postMessage(event.data, "*");
+	}
+	
+	if(data[0] === "objectSelected") {
+		attributesFrame.contentWindow.postMessage(event.data, "*");
 	}
 }
 		
