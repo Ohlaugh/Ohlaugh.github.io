@@ -14,7 +14,7 @@ function toolSelection(event) {
 	}
 
 	if(data[0] === "addFurniture") {
-		addFurniture(parseInt(data[1]),parseInt(data[2]),data[3]);
+		addFurniture(parseFloat(data[1]),parseFloat(data[2]),data[3]);
 	}
 	
 	if(data[0] === "floorUp") {
@@ -34,7 +34,7 @@ function toolSelection(event) {
 	}
 	
 	if(data[0] === "updateObject") {
-		updateObject(parseInt(data[1]),parseInt(data[2]),parseInt(data[3]),parseInt(data[4]),data[5],parseInt(data[6]));
+		updateObject(parseFloat(data[1]),parseFloat(data[2]),parseFloat(data[3]),parseFloat(data[4]),data[5],parseFloat(data[6]));
 	}
 }
 
