@@ -210,7 +210,7 @@ function onMouseDownCanvas(){
 	var selectedObject = blueprint.selectedObject;
 	if(selectedObject != undefined){
 		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
-		//chases function(currentObject.x, currentObject.y)!
+		objectSelected(currentObject.x, currentObject.y, currentObject.width, currentObject.height, currentObject.pictureID, currentObject.rotation);
 	}
 	// context.beginPath();
 	// context.arc(startX, startY, 4, 0, 2 * Math.PI);
@@ -218,6 +218,11 @@ function onMouseDownCanvas(){
 	
 	blueprint.draw();
 	
+}
+
+function objectSelected(x, y, width, height, pictureID, rotation) {
+	var args = x + "," + y + "," + width + "," + height + "," + pictureID + "," + rotation;
+	window.parent.postMessage("objectSelected,"+ args, "*");
 }
 
 function onMouseUpCanvas(){
