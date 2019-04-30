@@ -64,6 +64,13 @@ class Floor {
 		this.RoomObjects.push(tempObject);
 		return;
 	}
+	addWall(x,y){
+		
+		var tempWall = new Wall(x, y, x, y, this.Walls.length);
+
+		this.Walls.push(tempWall);
+		return;
+	}
 	
 }
 
@@ -100,6 +107,12 @@ class Wall {
 		
 		
 	}
+	
+	translate(x, y){
+		this.endX += x;
+		this.endY += y;		
+	}
+	
 	get point1() {
 		var dx = this.endX = this.startX;
 		var dy = this.endY = this.startY;

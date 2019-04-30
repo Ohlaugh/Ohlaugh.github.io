@@ -13,6 +13,7 @@ var wallPointColor = "#222222";
 
 var wallPointRadius = 6;
 
+var wallClipping = 100;
 /// end settings
 	
 
@@ -205,7 +206,12 @@ function onMouseDownCanvas(){
 	startY = event.offsetY;
 
 	blueprint.objectCollision(startX, startY);
-	
+	var currentFloor = blueprint.currentFloor;
+	var selectedObject = blueprint.selectedObject;
+	if(selectedObject != undefined){
+		var currentObject = blueprint.floors[currentFloor].RoomObjects[selectedObject];
+		//chases function(currentObject.x, currentObject.y)!
+	}
 	// context.beginPath();
 	// context.arc(startX, startY, 4, 0, 2 * Math.PI);
 	// context.stroke();
@@ -302,12 +308,30 @@ function onMouseMovePan(){
 
 function onMouseDownWall(){
 	isDown = true;
-	//alert("h");
-	startX = event.offsetX;
-	startY = event.offsetY;	
+	startX = getClippedValue(event.offsetX, -blueprint.translateX);
+	startY = getClippedValue(event.offsetY, -blueprint.translateY);
+	
+	
+	var currentFloor = blueprint.currentFloor;
+	
+	blueprint.floors[currentFloor].addWall(startX - blueprint.translateX, startY -	 blueprint.translateY);
 }
 
 function onMouseUpWall(){
+	isDown = false;
+	
+	// var endX = event.offsetX;
+	// var endY = event.offsetY;
+	var endX = getClippedValue(event.offsetX, -blueprint.translateX);
+	var endY = getClippedValue(event.offsetY, -blueprint.translateY);
+	
+	var currentFloor = blueprint.currentFloor;
+	var Walls = blueprint.floors[currentFloor].Walls;
+	var currentWall = Walls[Walls.length - 1];
+	currentWall.translate(endX - startX, endY - startY);
+	
+	startX = endX;
+	startY = endY;
 	
 }
 
@@ -316,13 +340,34 @@ function onMouseMoveWall(){
 		return;
 	clearCanvas();
 	
+	// var endX = event.offsetX;
+	// var endY = event.offsetY;
+	var endX = getClippedValue(event.offsetX, -blueprint.translateX);
+	var endY = getClippedValue(event.offsetY, -blueprint.translateY);
+	
+	var currentFloor = blueprint.currentFloor;
+	var Walls = blueprint.floors[currentFloor].Walls;
+	var currentWall = Walls[Walls.length - 1];
+	currentWall.translate(endX - startX, endY - startY);
 	
 	
 	blueprint.draw();
 	
-	startX = event.offsetX;
-	startY = event.offsetY;
+	startX = endX;
+	startY = endY;
 	
+}
+
+function getClippedValue(value, translation){
+	value = value + wallClipping / 2 - (value + wallClipping / 2) % wallClipping;
+	translation = translation % wallClipping
+	if(translation >= wallClipping/2){
+		console.log(value + translation);
+		return value + translation;
+	} else {
+		console.log(value - translation);
+		return value - translation;
+	}
 }
 
 function handelMouseDown(){
@@ -425,4 +470,11 @@ function updateObject(x, y, width, height, pictureID, rotation){
 	currentObject.rotation = rotation;
 	
 	blueprint.redraw();
+}
+
+
+
+function f(value, t){
+    value = value - t + 5 - ( ( value - t + 10/2 ) % 10) + t;
+	return value;
 }
