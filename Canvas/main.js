@@ -513,6 +513,10 @@ function startUp(){
 		if(!isSaved)
 			return 'hello world';
     };
+	
+	if(window.location.search){
+		console.log("yes");
+	}
 	//blueprint.draw();
 }
 
