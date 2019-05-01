@@ -1,0 +1,83 @@
+<!--
+    $(function () {
+        
+        var pName = window.location.pathname;
+
+        var points_click = [];
+
+        var points_mousemove = [];
+                
+
+
+    function updatePointsArr(ev, pointsArr) {
+        
+        var xVal = ev.pageX;  
+
+        var yVal = ev.pageY;
+        
+        if ( xVal >= 0 ) {
+
+			var point = {
+                x:xVal, 
+                y:yVal
+            };
+
+            pointsArr.push(point);
+
+		}
+	}
+	
+    function byteCount(s) {
+
+        return encodeURI(s).split(/%..|./).length - 1;
+
+    }
+
+
+    function sendData(pointsArr) {
+
+		if ( pointsArr.length > 0 ) {
+
+			var jsonStr_points = JSON.stringify(pointsArr);
+
+			var pointsLen = pointsArr.length;
+
+            var url_temp = window.location.href;
+            
+            var pth_temp = window.location.pathname;
+
+            var dmn_temp = window.location.hostname;
+            
+            var width_temp = $( window ).width();
+            
+            var data = 
+				{
+					data: jsonStr_points,
+					pageName: pName,
+                    url: url_temp,
+                    path: pth_temp,
+                    WinWidth: width_temp,
+                    domain: dmn_temp,
+                    pageVersion: "2018-10-29-8-50"
+                };
+
+            var dataStrLen = byteCount(JSON.stringify(data));
+
+            $.post('https://clients.spherexx.com/heatmap/injest/v1.1/dataer', data);
+
+			pointsArr.length = 0;
+		}
+	}
+	
+		
+    document.onclick = function (ev) {
+
+        updatePointsArr(ev, points_click);
+        
+        sendData( points_click );
+
+	}
+	    		
+});
+
+//-->

@@ -1,0 +1,797 @@
+/*
+402
+element >> default >> selected
+PrimaryBG >> #9F0101 >> #9F0101
+PrimaryFG >> #ffffff >> #ffffff
+RolloverBG >> #ffffff >> #ffffff
+RolloverFG >> #9F0101 >> #9F0101
+HeaderFG >> #a60202 >> #a60202
+body >> Source Sans >> Montserrat-Regular-webfont
+overlay >> DISCO___-webfont >> Montserrat-Regular-webfont
+*/
+
+body {font-family: "Montserrat-Regular-webfont", "Source Sans"}
+/* Montserrat-Regular-webfont - 94% */body{font-size: 94% !important;} 
+h1, h2, h3, h4 {font-family: "Montserrat-Regular-webfont", "Source Sans"} 
+
+div.tagline span {font-family: "Montserrat-Regular-webfont", "DISCO___-webfont"}
+
+h2, #preview-center-banner > div.content, .article-card__title {color: #a60202}
+#preview-center-banner > div.content {font-weight:bold;}
+
+a, #page-reviews div.overall a { 
+	color: #a60202
+}
+
+#preview-center-banner > div.content {color: #fff;}
+#preview-center-banner > div.content  {font-family: Montserrat-Regular-webfont}
+#preview-center-banner{background: #9F0101; font-family: Montserrat-Regular-webfont}
+.spotItemContainer{font-family: Montserrat-Regular-webfont}
+.spotlightP a {background: #9F0101;}
+
+.site-section.accented2 form button, div.btns input[type="radio"]:checked + span {
+	background:#9F0101 !important;
+    color:#ffffff !important;
+}
+
+.help-bg, .help-bg-hover {
+	background-color: #9F0101 !important;
+    color: #ffffff !important;
+}
+
+.details__loader path, .details__loader rect{
+	fill: #9F0101;
+}
+
+.help-bg-hover:hover {
+	color: #9F0101 !important;
+    background-color: #ffffff !important;
+}
+
+.time-container input[type="radio"]:checked ~ .radio {
+	background: #9F0101;
+	border-color: #9F0101;
+}
+
+.is-today .pika-button {
+	color: #9F0101 !important;
+}
+.is-selected .pika-button {
+	color: #fff !important;
+	background: #9F0101 !important;
+}
+.plan-number.selected {
+	color: #fff !important;
+	background: #9F0101 !important;
+}
+
+#main-nav li a span {
+	color:#fff;
+}
+
+#main-nav li.active a,  {
+	color:#ffffff;
+}
+#main-nav li.active a {
+	background:#9F0101;
+}
+
+
+#main-nav li.subnav ul a span {color:white;}
+#main-nav li.subnav ul li:hover a span {color:#9F0101;}
+
+
+#uni-slideshow .slides li:before {
+	background:url('/images/overlays/blank.png') rgba(0,0,0,.65);
+	opacity:0;
+}
+
+.ie8 #uni-slideshow .slides li:before {
+	background:url('/images/overlays/blank.png') transparent;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=65)";
+	filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=65)";
+}
+
+#main-nav .subnav:after {
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:6px solid #ffffff;
+}
+
+#uni-header.compact #main-nav .subnav:after, #uni-header.force-compact #main-nav .subnav:after {
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:6px solid #ffffff;
+}
+
+#main-nav > ul > li.open,
+#main-nav > ul > li.open > ul > li:hover {
+	color:#9F0101;
+    background: #ffffff;
+}
+
+#main-nav > ul > li.open > a,
+#main-nav > ul > li.open > ul > li:hover > a {
+	color:#9F0101;
+    background: #ffffff;
+}
+
+
+#main-nav .subnav.open:after {
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:6px solid #9F0101;
+}
+
+#main-nav ul > li.active, #main-nav ul > li.active:hover {
+	background:#9F0101; /* Old browsers */
+	background:-moz-linear-gradient(top, #bf0202 0%, #9F0101 100%); /* FF3.6+ */
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#bf0202), color-stop(100%,#9F0101)); /* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top, #bf0202 0%,#9F0101 100%); /* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top, #bf0202 0%,#9F0101 100%); /* Opera 11.10+ */
+	background:-ms-linear-gradient(top, #bf0202 0%,#9F0101 100%); /* IE10+ */
+	background:linear-gradient(to bottom, #bf0202 0%,#9F0101 100%); /* W3C */
+}
+
+/*
+#main-nav ul > li:hover > a, #main-nav ul > li.active > a {
+	background:url('/images/overlays/blank.png');
+}
+*/
+
+
+#uni-header.compact #main-nav > ul > li.subnav.open:after, #uni-header.compact #main-nav ul > li.subnav.active:after,
+#uni-header.force-compact #main-nav > ul > li.subnav.open:after, #uni-header.force-compact #main-nav ul > li.subnav.active:after {
+	border-left:6px solid transparent;
+	border-right:6px solid transparent;
+	border-top:6px solid #9F0101;
+}
+
+#uni-header.compact #main-nav > ul > li.open > a, #uni-header.compact #main-nav ul > li.active > a,
+#uni-header.force-compact #main-nav > ul > li.open > a, #uni-header.force-compact #main-nav ul > li.active > a {
+	background:none;
+	color:#9F0101;
+}
+
+#menu-button {
+	background:#ffffff;
+}
+
+#menu-button:before {
+	border-bottom: 13px double #4c4c4c;
+	border-top: 4px solid #4c4c4c;
+}
+
+#main-nav .subnav ul {
+	background:url('/images/overlays/blank.png') rgba(0,0,0,.80);
+	border:1px solid #000000;
+}
+
+@media screen and (max-width:48em){ /*768px*/
+	#main-nav ul > li:hover, #main-nav ul > li.active {
+		background:none;
+	}
+	
+	#uni-header.compact #main-nav > ul > li.active > a, #uni-header.force-compact #main-nav > ul > li.active > a, #main-nav > ul > li.active > a, #main-nav > ul > li.subnav.opened > a {
+		background:#9F0101; /* Old browsers */
+		background:-moz-linear-gradient(top, #bf0202 0%, #9F0101 100%); /* FF3.6+ */
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#bf0202), color-stop(100%,#9F0101)); /* Chrome,Safari4+ */
+		background:-webkit-linear-gradient(top, #bf0202 0%,#9F0101 100%); /* Chrome10+,Safari5.1+ */
+		background:-o-linear-gradient(top, #bf0202 0%,#9F0101 100%); /* Opera 11.10+ */
+		background:-ms-linear-gradient(top, #bf0202 0%,#9F0101 100%); /* IE10+ */
+		background:linear-gradient(to bottom, #bf0202 0%,#9F0101 100%); /* W3C */
+		color:#ffffff;
+	}
+	
+	#main-nav > ul > li.open > a, #main-nav > ul > .subnav > ul > li.open > a {
+		background:#ffffff;
+		color:#9F0101;
+	}
+	
+	#uni-header.compact #main-nav > ul > li.open, #uni-header.compact #main-nav ul > li.active, #uni-header.force-compact #main-nav > ul > li.open, #uni-header.force-compact #main-nav ul > li.active {
+		background:none;
+	}
+	
+	#uni-header.compact #main-nav > ul > li.open > a, #uni-header.force-compact #main-nav > ul > li.open > a {
+		background:#ffffff;
+	}
+	
+	#main-nav > ul > li.subnav.open:after {
+		border-left:6px solid transparent;
+		border-right:6px solid transparent;
+		border-top:6px solid #9F0101;
+	}
+	
+	#uni-header.compact #main-nav > ul > li.subnav.opened:after, #uni-header.force-compact #main-nav > ul > li.subnav.opened:after, #main-nav > ul > li.subnav.opened:after {
+		border-left:6px solid transparent;
+		border-right:6px solid transparent;
+		border-top:6px solid transparent;
+		border-bottom:6px solid #9F0101;
+		top:30px;
+	}
+	
+	#uni-header.compact #main-nav > ul > li.subnav.opened:hover:after, #uni-header.force-compact #main-nav > ul > li.subnav.opened:hover:after, #main-nav > ul > li.subnav.opened:hover:after {
+		border-left:6px solid transparent;
+		border-right:6px solid transparent;
+		border-top:6px solid transparent;
+		border-bottom:6px solid #ffffff;
+		top:30px;
+	}
+	
+	#main-nav .subnav ul {
+		background:#303030;
+		border:none;
+	}
+	
+	#main-nav > ul > li.subnav.open:after, #main-nav ul > li.subnav.active:after {
+		border-left:6px solid transparent;
+		border-right:6px solid transparent;
+		border-top:6px solid transparent;
+		border-bottom:6px solid #9F0101;
+		top:30px;
+	}
+	
+	#uni-header.compact #main-nav > ul > li.subnav.open:after, #uni-header.compact #main-nav ul > li.subnav.active:after, #uni-header.force-compact #main-nav > ul > li.subnav.open:after, #uni-header.force-compact #main-nav ul > li.subnav.active:after {
+		border-left:6px solid transparent;
+		border-right:6px solid transparent;
+		border-top:6px solid transparent;
+		border-bottom:6px solid #9F0101;
+		top:30px;
+	}
+}
+
+
+.section-nav .sc-floor_plans a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-floorplan.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-floor_plans a:hover:before, .section-nav .sc-floor_plans.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-floorplan.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-internet-offer a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-internet_offer.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-internet-offer a:hover:before, .section-nav .sc-internet-offer.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-internet_offer.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-brochure a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-brochure.svg.asp?w=45&h=31') no-repeat center center transparent;
+}
+
+.section-nav .sc-brochure a:hover:before, .section-nav .sc-brochure.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-brochure.svg.asp?c=ffffff&w=45&h=31') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-site_plan a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-siteplan.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-site_plan a:hover:before, .section-nav .sc-site_plan.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-siteplan.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-fact_sheet a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-fact_sheet.svg.asp?v=3') no-repeat center center transparent;
+}
+
+.section-nav .sc-fact_sheet a:hover:before, .section-nav .sc-fact_sheet.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-fact_sheet.svg.asp?c=ffffff&v=1') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-apply_today a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-apply.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-apply_today a:hover:before, .section-nav .sc-apply_today.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-apply.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-email_me a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-at.svg.asp?dev=10') no-repeat center center transparent;
+}
+
+.section-nav .sc-email_me a:hover:before, .section-nav .sc-email_me.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-at.svg.asp?c=ffffff&dev=10') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-view_all_units a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-floorplan.svg.asp?dev=10') no-repeat center center transparent;
+}
+
+.section-nav .sc-view_all_units a:hover:before, .section-nav .sc-view_all_units.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-floorplan.svg.asp?c=ffffff&dev=10') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-skype a:before {
+	background:url('/images/icon-skype.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-skype a:hover:before, .section-nav .sc-skype.active a:before {
+	background:url('/images/icon-skype.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+.section-nav .sc-blog a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-blog.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-blog a:hover:before, .section-nav .sc-blog.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-blog.svg.asp?c=4c4c4c') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-zrs_connect a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-connect.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-zrs_connect a:hover:before, .section-nav .sc-zrs_connect.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-connect.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-plan_visit a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-plan_visit.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-plan_visit a:hover:before, .section-nav .sc-plan_visit.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-plan_visit.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-questions a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-questions.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-questions a:hover:before, .section-nav .sc-questions.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-questions.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-reviews a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-reviews.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-reviews a:hover:before, .section-nav .sc-reviews.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-reviews.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-pet_policy a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pet_policy.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-pet_policy a:hover:before, .section-nav .sc-pet_policy.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pet_policy.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-pref_employer a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pref_employer.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-pref_employer a:hover:before, .section-nav .sc-pref_employer.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pref_employer.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-service_request a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-service_request.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-service_request a:hover:before, .section-nav .sc-service_request.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-service_request.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-calendar a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-calendar.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-calendar a:hover:before, .section-nav .sc-calendar.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-calendar.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-meet_our_staff a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-meet_our_staff.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-meet_our_staff a:hover:before, .section-nav .sc-meet_our_staff.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-meet_our_staff.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-refer_a_friend a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-refer_a_friend.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-refer_a_friend a:hover:before, .section-nav .sc-refer_a_friend.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-refer_a_friend.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+
+
+.section-nav .sc-post_a_review a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-post_a_review.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-post_a_review a:hover:before, .section-nav .sc-post_a_review.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-post_a_review.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-emergency_info a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-emergency_info.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-emergency_info a:hover:before, .section-nav .sc-emergency_info.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-emergency_info.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-cares a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-heart.svg.asp?BackgroundColor=4c4c4c') no-repeat center center transparent;
+}
+
+.section-nav .sc-cares a:hover:before, .section-nav .sc-cares.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-heart.svg.asp?BackgroundColor=ffffff') no-repeat center center #4c4c4c;
+}
+
+.category-nav .sc-transportation a:before, .category-nav .sc-travelservices a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-transportation.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-recreation a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-parks.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-dining a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-dining.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-entertainment a:before, .category-nav .sc-leisure a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-entertainment.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-fitness a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-fitness.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-education a:before, .category-nav .sc-colleges a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-education.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-previewcenter a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-preview.svg.asp?c=535353&w=48&h=48') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-governmentservices a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-government_services.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-shopping a:before, .category-nav .sc-retailservices a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-retail_services.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-emergencyservices a:before, .category-nav .sc-hospital a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-emergency_info.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-banking a:before, .category-nav .sc-banks a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pay_rent.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-airport a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-airport.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-publicservices a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-public_service.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-restaurants a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-restaurant.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-schools a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-schools.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-autodealership a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-auto_dealership.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-daycares a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-day_care.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-insurancecompany a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-insurance.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-majoremployers a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-major_employers.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-petcare a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pet_policy.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-vineyard a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-vineyards.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-hotels a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-hotels.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.category-nav .sc-travelservices a:before, .category-nav .sc-transport a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-travel_services.svg.asp?c=535353') no-repeat center center #ffffff;
+}
+
+.section-nav .sc-insurance a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-insurance.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-insurance a:hover:before, .section-nav .sc-insurance.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-insurance.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-fire_safety a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-fire_safety.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-fire_safety a:hover:before, .section-nav .sc-fire_safety.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-fire_safety.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-pay_rent a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pay_rent.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-pay_rent a:hover:before, .section-nav .sc-pay_rent.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-pay_rent.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-resident_portal a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-resident_portal.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-resident_portal a:hover:before, .section-nav .sc-resident_portal.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-resident_portal.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-leed a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-leed.svg.asp') no-repeat center center transparent;
+}
+
+.section-nav .sc-leed a:hover:before, .section-nav .sc-leed.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-leed.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+.section-nav .sc-transportation a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-travel_services.svg.asp') no-repeat center center #ffffff;
+}
+
+.section-nav .sc-transportation a:hover:before, .section-nav .sc-transportation.active a:before {
+	background:url('https://spxeastwebfarm8-spherexxcom.netdna-ssl.com/zrs_new/assets/images/icon-travel_services.svg.asp?c=ffffff') no-repeat center center #4c4c4c;
+}
+
+/*
+.gallery-list li a:before {
+	background:url('/images/overlays/blank.png') rgba(0,0,0,.65);
+	opacity:0;
+}
+*/
+
+
+#video.videoOverlay:before, #video2.videoOverlay:before {
+	background:url('/images/overlays/honeycomb.png') rgba(0,0,0,.65);
+	opacity:.6;
+}
+
+
+#section-contact_us .slides li:before {
+		
+	background:url('/images/overlays/solid.png');
+	opacity:0.4;
+}
+
+.ie8 #section-contact_us .slides li:before {
+	background:url('/images/overlays/blank.png') transparent;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=65)";
+	filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=65)";
+}
+
+.CalendarDate {
+	color:#9F0101
+}
+
+/* Custom Colors - Standard Nav */
+
+#uni-header #main-nav li {
+}
+#uni-header #main-nav li a span {
+    color: white
+}
+
+#uni-header #main-nav li:hover {
+    background: #ffffff
+}
+#uni-header #main-nav li:hover a span {
+    color: #9F0101
+}
+
+
+#uni-header #main-nav .subnav li {background:#303030;}
+#uni-header #main-nav .subnav li a span {color:#fff;}
+
+#uni-header #main-nav .subnav li:hover {
+	background:#ffffff;
+}
+#uni-header #main-nav .subnav li:hover a span {
+	color:#9F0101;
+}
+
+/* Custom Colors - Compact Nav */
+#uni-header.compact #main-nav li, #uni-header.force-compact #main-nav li {
+	background:#9F0101;
+}
+#uni-header.compact #main-nav li a span, #uni-header.force-compact #main-nav li a span {
+    color: #ffffff
+}
+
+#uni-header.compact #main-nav li:hover, #uni-header.force-compact #main-nav li:hover {
+	background:#ffffff;
+}
+#uni-header.compact #main-nav li:hover a span, #uni-header.force-compact #main-nav li:hover a span {
+    color: #9F0101
+}
+
+#uni-header.compact #main-nav {
+	background:#9F0101;
+}
+
+#uni-header.force-compact #main-nav {
+	background:#9F0101 !important;
+}
+
+#uni-header.compact #main-nav .subnav li, #uni-header.force-compact #main-nav .subnav li {background:#303030;}
+#uni-header.compact #main-nav .subnav li a span, #uni-header.force-compact #main-nav .subnav li a span {color:#fff;}
+
+#uni-header.compact #main-nav .subnav li:hover, #uni-header.force-compact #main-nav .subnav li:hover {
+	background:#ffffff;
+}
+#uni-header.compact #main-nav .subnav li:hover a span, #uni-header.force-compact #main-nav .subnav li:hover a span {
+	color:#9F0101;
+}
+
+/*home button */
+#uni-header #main-nav li.tn-home, #uni-header.compact #main-nav li.tn-home, #uni-header.force-compact #main-nav li.tn-home {
+	background:#9F0101;
+}
+
+#uni-header #main-nav li.tn-home a span, #uni-header.compact #main-nav li.tn-home a span, #uni-header.force-compact #main-nav li.tn-home a span {
+	color:#ffffff;
+}
+
+#uni-header #main-nav li.tn-home:hover {
+	background: #ffffff;
+}
+#uni-header #main-nav li.tn-home:hover a span {  
+	color: #9F0101;
+}
+
+.fp__coliving-filter:hover,
+.fp__coliving-filter--active {
+  background-color: #9F0101;
+}
+
+.button--colored {
+	color:#fff;
+	background:#9F0101;
+	display:block;
+	width:90%;
+	max-width:335px;
+	text-transform:uppercase;
+	font-size:1.2em;
+	line-height:2.33em;
+	text-align:center;
+	margin:1em auto;
+	text-decoration:none;
+}
+
+
+		#logo-large span.phone, div.tagline span {
+		text-shadow: 2px 2px #000 !important;
+		}
+		#main-nav li a span {
+		text-shadow: 1px 1px #000 !important;
+		}
+		#main-nav li.active a span {
+		text-shadow: none !important;
+		}
+		#main-nav li.open a span {
+		text-shadow: none !important;
+		}    
+		#page-contact_us div, #page-contact_us h2, #page-contact_us label {text-shadow: 2px 2px #000 !important;}
+	
+            @font-face {
+                font-family: 'DISCO___-webfont';
+                src: url('/includes/fonts/DISCO___-webfont/DISCO___-webfont.eot');
+                src: url('/includes/fonts/DISCO___-webfont/DISCO___-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/DISCO___-webfont/DISCO___-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'helvetica';
+                src: url('/includes/fonts/helvetica/helvetica.eot');
+                src: url('/includes/fonts/helvetica/helvetica.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/helvetica/helvetica.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'josefinsans-regular-webfont';
+                src: url('/includes/fonts/josefinsans-regular-webfont/josefinsans-regular-webfont.eot');
+                src: url('/includes/fonts/josefinsans-regular-webfont/josefinsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/josefinsans-regular-webfont/josefinsans-regular-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'Lusitana-Regular-webfont';
+                src: url('/includes/fonts/Lusitana-Regular-webfont/Lusitana-Regular-webfont.eot');
+                src: url('/includes/fonts/Lusitana-Regular-webfont/Lusitana-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/Lusitana-Regular-webfont/Lusitana-Regular-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'Montserrat-Regular-webfont';
+                src: url('/includes/fonts/Montserrat-Regular-webfont/Montserrat-Regular-webfont.eot');
+                src: url('/includes/fonts/Montserrat-Regular-webfont/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/Montserrat-Regular-webfont/Montserrat-Regular-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'Oswald-Regular-webfont';
+                src: url('/includes/fonts/Oswald-Regular-webfont/Oswald-Regular-webfont.eot');
+                src: url('/includes/fonts/Oswald-Regular-webfont/Oswald-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/Oswald-Regular-webfont/Oswald-Regular-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'PlayFair-Regular-webfont';
+                src: url('/includes/fonts/PlayFair-Regular-webfont/PlayFair-Regular-webfont.eot');
+                src: url('/includes/fonts/PlayFair-Regular-webfont/PlayFair-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/PlayFair-Regular-webfont/PlayFair-Regular-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'ptserif';
+                src: url('/includes/fonts/ptserif/ptserif.eot');
+                src: url('/includes/fonts/ptserif/ptserif.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/ptserif/ptserif.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            
+            @font-face {
+                font-family: 'SourceSansPro-Light-webfont';
+                src: url('/includes/fonts/SourceSansPro-Light-webfont/SourceSansPro-Light-webfont.eot');
+                src: url('/includes/fonts/SourceSansPro-Light-webfont/SourceSansPro-Light-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('/includes/fonts/SourceSansPro-Light-webfont/SourceSansPro-Light-webfont.ttf') format('truetype');
+                font-weight:400;
+                font-style: normal;
+            }  
+         
+            

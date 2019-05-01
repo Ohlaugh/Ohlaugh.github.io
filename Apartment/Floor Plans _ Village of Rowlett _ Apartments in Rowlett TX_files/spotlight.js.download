@@ -1,0 +1,19 @@
+(function(){
+	$(window).ready(function(e) {
+		var ele = document.getElementById("spotlightContent")
+		if(ele != null){
+        	if(document.getElementById("spotlightContent").scrollHeight > window.innerHeight * .33){
+				$('.expandMe').css("display", "block");
+			}
+		}
+    });
+	$('.expandMe').on('click',function(){
+		$('.expandMeClose').addClass('open');
+		$('.expandMe').addClass('open');
+		$('#spotlight').addClass('open');
+		$(this).parent().addClass('open');
+	});
+	$('.expandMeClose').on('click',function(){
+		$('#spotlight').remove();
+	});
+})();

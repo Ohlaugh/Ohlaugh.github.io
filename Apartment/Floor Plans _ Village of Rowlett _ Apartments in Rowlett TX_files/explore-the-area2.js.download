@@ -1,0 +1,458 @@
+var map, latlng, bounds, gmap, properties, markers, gicons, mapIsLoaded = false, markerCluster;
+
+properties = [];
+markers = [];
+
+gicons = [
+	["Airport", "/includes/explore-the-area/images/map_icons/airport.png"],
+	["Theme Park", "/includes/explore-the-area/images/map_icons/amusement.png"],
+	["Bank", "/includes/explore-the-area/images/map_icons/bank.png"],
+	["Bar/Club", "/includes/explore-the-area/images/map_icons/bar.png"],
+	["Coffee Shop", "/includes/explore-the-area/images/map_icons/coffee.png"],
+	["College/University", "/includes/explore-the-area/images/map_icons/college.png"],
+	["Courthouse", "/includes/explore-the-area/images/map_icons/courthouse.png"],
+	["Daycare", "/includes/explore-the-area/images/map_icons/daycare.png"],
+	["Fire Station", "/includes/explore-the-area/images/map_icons/fire.png"],
+	["Gas Station", "/includes/explore-the-area/images/map_icons/gas.png"],
+	["Golf Course", "/includes/explore-the-area/images/map_icons/golf.png"],
+	["Government Office", "/includes/explore-the-area/images/map_icons/government.png"],
+	["Grocery", "/includes/explore-the-area/images/map_icons/grocery.png"],
+	["Hospital", "/includes/explore-the-area/images/map_icons/hospital.png"],
+	["Laundry", "/includes/explore-the-area/images/map_icons/laundry.png"],
+	["Public Library", "/includes/explore-the-area/images/map_icons/library.png"],
+	["Movie Theater", "/includes/explore-the-area/images/map_icons/movie.png"],
+	["Museum", "/includes/explore-the-area/images/map_icons/museum.png"],
+	["Park", "/includes/explore-the-area/images/map_icons/park.png"],
+	["Pharmacy", "/includes/explore-the-area/images/map_icons/pharmacy.png"],
+	["Police Station", "/includes/explore-the-area/images/map_icons/police.png"],
+	["Post Office", "/includes/explore-the-area/images/map_icons/postoffice.png"],
+	["Restaurant", "/includes/explore-the-area/images/map_icons/restaurant.png"],
+	["School", "/includes/explore-the-area/images/map_icons/school.png"],
+	["Shopping", "/includes/explore-the-area/images/map_icons/shopping.png"],
+	["Zoo", "/includes/explore-the-area/images/map_icons/zoo.png"],
+	["Train", "/includes/explore-the-area/images/map_icons/train.png"],
+	["Bus", "/includes/explore-the-area/images/map_icons/bus.png"],
+	["Taxi", "/includes/explore-the-area/images/map_icons/taxi.png"],
+	["Theater", "/includes/explore-the-area/images/map_icons/theater.png"],
+	["Aquarium", "/includes/explore-the-area/images/map_icons/aquarium.png"],
+	["Attractions", "/includes/explore-the-area/images/map_icons/attractions.png"],
+	["Hotel", "/includes/explore-the-area/images/map_icons/hotel.png"],
+	["Fitness Center/Gym", "/includes/explore-the-area/images/map_icons/fitness.png"],
+	["Generic", "/includes/explore-the-area/images/map_icons/generic.png"]
+];
+
+gmap = {
+	init: function() {
+		bounds = new google.maps.LatLngBounds();
+		var opts = {
+			zoom: 17,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			center: new google.maps.LatLng(property_lat, property_lng),
+			panControl: false,
+			scrollwheel: false,
+			streetViewControl: false,
+			mapTypeControlOptions: {
+				mapTypeIds: ['custom', google.maps.MapTypeId.SATELLITE]
+			},
+			mapTypeId: 'custom'
+		};
+		var gFeatures = [
+			{ featureType: 'administrative', elementType: 'all', stylers: [{ saturation: -100 }, { visibility: 'simplified' }]},
+			{ featureType: 'landscape', elementType: 'all', stylers: [{ saturation: -100 }]},
+			{ featureType: 'road', elementType: 'all', stylers: [{ saturation: -100 }]},
+			{ featureType: 'transit', elementType: 'all', stylers: [{ saturation: -100 }]},
+			{ featureType: 'water', elementType: 'all', stylers: [{ color: '#b0ddd8' }]},
+			{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }]}
+		];
+		map = new google.maps.Map(document.getElementById("map"), opts);
+		map.mapTypes.set('custom', new google.maps.StyledMapType(gFeatures, { name: 'Map' }));
+		gmap.createMarker({
+			lat: property_lat,
+			lng: property_lng,
+			title: property_name,
+			html: '' +
+			(property_logo_alt != ''? '<div style="width: 140px; text-align:center; margin-left:10px;overflow: hidden; color: #333333;"><img src="' + property_logo_alt + '&w=1&mw=90&h=1&mh=60&f=png" alt="Logo" /><br/>': '') +
+			'<div style="width: 200px; overflow: hidden; color: #333333;">' +
+			'<strong style="font-weight: bold;">' + property_name + '</strong><br />' +
+			property_address + '<br />' +
+			property_city + ', ' + property_state + ' ' + property_zip + '<br />' +
+			property_phone +
+			'</div>',
+			zindex: 99998,
+			logo: property_logo,
+			property: 1
+		});//icon-walk-bike-trans.svg.asp
+
+		var scoreArray = []
+		if(validScore(WalkScore)){scoreArray.push({"name" : "Walk Score", "score" : WalkScore})}
+		if(validScore(BikeScore)){scoreArray.push({"name" : "Bike Score", "score" : BikeScore})}
+		if(validScore(TransitScore)){scoreArray.push({"name" : "Transit Score", "score" : TransitScore})}
+		console.log(scoreArray)
+
+		if(scoreArray.length == 3){
+			gmap.createMarker({
+				lat: property_lat,
+				lng: property_lng,
+				html: '',
+				zindex: 2,
+				animation: 'DROP',
+				logo: '/images/icon-walkscore-text3.svg.asp?w=126&h=126&Score=' + scoreArray[0].score + '&Text=' + scoreArray[0].name + '&Score2=' + scoreArray[1].score + '&Text2=' + scoreArray[1].name + '&Score3=' + scoreArray[2].score + '&Text3=' + scoreArray[2].name + '&backgroundcolor=e5e5e5&strokecolor=666666&textcolor=666666&scorecolor=333333',
+				property: 1
+			});
+		} else if(scoreArray.length == 2){
+			gmap.createMarker({
+				lat: property_lat,
+				lng: property_lng,
+				html: '',
+				zindex: 2,
+				animation: 'DROP',
+				logo: '/images/icon-walkscore-text2.svg.asp?w=126&h=126&Score=' + scoreArray[0].score + '&Text=' + scoreArray[0].name + '&Score2=' + scoreArray[1].score + '&Text2=' + scoreArray[1].name + '&backgroundcolor=e5e5e5&strokecolor=666666&textcolor=666666&scorecolor=333333',
+				property: 1
+			});
+		} else if(scoreArray.length == 1){
+			gmap.createMarker({
+				lat: (property_lat + .0025),
+				lng: property_lng,
+				html: '',
+				zindex: 1,
+				animation: 'DROP',
+				logo: '/images/icon-walkscore-text.svg.asp?w=84&h=84&Score=' + scoreArray[0].score + '&Text=' + scoreArray[0].name + '&backgroundcolor=e5e5e5&strokecolor=666666&textcolor=666666&scorecolor=333333',
+				property: 1
+			});
+		}
+
+		google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
+			mapIsLoaded = true;
+			loadGMarkers();
+			gmap.initButtons();
+			gmap.initToggleLocationList();
+		});
+		onResize(function() {
+			mapIsLoaded ? gmap.resetMarkers() : '';
+		});
+	},
+	createMarker: function(opts) {
+		var marker, lat, lng, point, title, img, infoWindow, html, zindex, fit, logo, property, category, animation, visible, IconFound = false;
+		property = opts.property || 0;
+		lat = opts.lat || 0;
+		lng = opts.lng || 0;
+		point = new google.maps.LatLng(lat, lng);
+		title = opts.title || '';
+		html = opts.html || '';
+		category = opts.category || '';
+		animation = opts.animation || '';
+		animation != '' ? animation = eval('google.maps.Animation.' + animation) : '';
+		zindex = opts.zindex || '';
+		visible = opts.visible;
+		//visible.toLowerCase() == 'false' || visible == '0' ? visible = false : visible = true;
+		fit = opts.fit || 0;
+		logo = opts.logo || '';
+		if(logo == '') { logo = 'https://www.google.com/mapfiles/marker' + property_name.replace(/the /gi, '').substr(0,1) + '.png'; }
+		if(property == 0) {
+			for(var i = 0; i < gicons.length; i++) {
+				if($.inArray(opts.icon, gicons[i]) > -1) {
+					IconFound = true;
+					img = {
+						url: gicons[i][1]
+					};
+					break;
+				}
+			}
+			if(opts.icon == '') {
+				img = {
+					url: 'https://www.google.com/mapfiles/marker' + title.replace(/the /gi, '').substr(0,1) + '.png'
+				};
+			} else if(!IconFound) {
+				img = {
+					url: opts.icon
+				};
+			}
+		} else {
+			img = {
+				url: logo
+			};
+		}
+		marker = new google.maps.Marker({
+			position: point,
+			map: map,
+			title: title,
+			icon: img,
+			animation: animation,
+			visible: visible
+		});
+		if(html != '') {
+			infoWindow = new google.maps.InfoWindow({
+				content: html
+			});
+			
+			google.maps.event.addListener(marker, 'click', function() {
+				infoWindow.open(map,marker);
+				$('div.location-list .category-locations:visible').slideUp(400);
+				if(!isNaN(WalkScore) && WalkScore != '') {
+					if(typeof(properties[1] == "undefined")){
+						//console.log("undefined detected");
+					}
+					else{
+						properties[1].setVisible(false);
+					}
+				}
+			});
+		}
+		if(category != '') {
+			marker.category = category;
+		}
+		if(zindex != '') {
+			marker.setZIndex(zindex);
+		}
+		if(fit == 1) {
+			bounds.extend(point);
+			map.fitBounds(bounds);
+		}
+		if(property == 0) {
+			markers.push(marker);
+		} else {
+			properties.push(marker);
+		}
+		google.maps.event.addListenerOnce(map, 'bounds_changed', function(){
+			gmap.setDefaults();
+		});
+	},
+	showMarker: function(category) {
+		var bnds = new google.maps.LatLngBounds();
+		gmap.hideAllMarkers();
+		/*
+		if (markerCluster) {
+			markerCluster.clearMarkers();
+		}
+		*/
+		map.fitBounds(new google.maps.LatLngBounds(properties[0].position));
+		bnds.extend(properties[0].position);
+		for(var i = 0; i < markers.length; i++) {
+			if(markers[i].category == category) {
+				markers[i].setVisible(true);
+				if(!map.getBounds().contains(markers[i].position)) {
+					bnds.extend(markers[i].position);
+					map.fitBounds(bnds);
+				}
+			}
+		}
+		//gmap.cluster();
+		//document.getElementById(category + 'box').checked = true;
+		//$.prettyCheckbox.selected({obj: '#' + category + 'box', className: 'sel'})
+	},
+	hideMarker: function(category) {
+		/*
+		if (markerCluster) {
+			markerCluster.clearMarkers();
+		}
+		*/
+		for(var i = 0; i < markers.length; i++) {
+			if(markers[i].category == category) {
+				markers[i].setVisible(false);
+			}
+		}
+		//gmap.cluster();
+		//document.getElementById(category + 'box').checked = false;
+		//$.prettyCheckbox.deselected({obj: '#' + category + 'box', className: 'sel'})
+	},
+	hideAllMarkers: function() {
+		for(var i = 0; i < markers.length; i++) {
+			markers[i].setVisible(false);
+		}
+		$('#page-neighborhood ul.category-nav li').removeClass('visible');
+		$('#neighborhood-icon-nav').find('option[visible]').removeAttr('visible');
+	},
+	resetMarkers: function() {
+		/*
+		if (markerCluster) {
+			markerCluster.clearMarkers();
+		}
+		for(var i = 0; i < markers.length; i++) {
+			bounds.extend(markers[i].position);
+			map.fitBounds(bounds);
+		}
+		*/
+		gmap.setDefaults();
+		//gmap.cluster();
+	},
+	markerClick: function(category, pos) {
+		gmap.showMarker(category);
+		$('div.location-list .category-locations:visible').slideUp(400);
+		google.maps.event.trigger(markers[pos], 'click');
+		$('#page-neighborhood ul.category-nav li[category="' + category + '"]').addClass('visible');
+	},
+	boxClick: function(category) {
+		if(document.getElementById(category + 'box').checked) {
+			gmap.showMarker(category);
+		} else {
+			gmap.hideMarker(category);
+			//document.getElementById('box_toggle').checked = false;
+			//$.prettyCheckbox.deselected({obj: '#box_toggle', className: 'sel'})
+		}
+	},
+	toggleAll: function(elem) {
+		var obj = document.getElementById('box_toggle');
+		if(obj.checked) {
+			$(elem).each(function() {
+				$(this).attr('checked', 'checked');
+				gmap.showMarker($(this).attr('id').replace('box', ''));
+			});
+		} else {
+			$(elem).each(function() {
+				$(this).removeAttr('checked');
+				gmap.hideMarker($(this).attr('id').replace('box', ''));
+			});
+		}
+	},
+	setDefaults: function() {
+		var bnds = new google.maps.LatLngBounds();
+		map.fitBounds(new google.maps.LatLngBounds(properties[0].position));
+		bnds.extend(properties[0].position);
+		!isNaN(parseFloat(DefaultMapZoom)) ? map.setZoom(parseFloat(DefaultMapZoom)) : '';
+		!isNaN(parseFloat(DefaultMapLatitude)) && !isNaN(parseFloat(DefaultMapLongitude)) ? map.setCenter(new google.maps.LatLng(parseFloat(DefaultMapLatitude), parseFloat(DefaultMapLongitude))) : '';
+	},
+	cluster: function() {
+		markerCluster = new MarkerClusterer(map, markers, {
+			ignoreHidden: true,
+			enableRetinaIcons: true,
+			maxZoom: 14,
+			imagePath: '/includes/explore-the-area/images/cluster/m'
+			//imageSizes: [48,100,150,200,250]
+		});
+	},
+	initButtons: function() {
+		var ul = $('#page-neighborhood ul.category-nav'), div = $('div.location-list'), sel = $('#neighborhood-icon-nav');
+		
+		var category = ul.find(' > li:first').attr('category');
+		if(!div.is(':visible')) {
+			div.css('display', 'block');
+		}
+		div.find('div[category]').css('display', 'none').next().css('display', 'none');
+		gmap.showMarker(category);
+		ul.find(' > li:first').addClass('visible');
+		$('div.location-list div.category-name[category="' + category + '"]').css('display', 'block').next().css('display', 'block');
+		sel.val(category);
+		
+		ul.find(' > li a').each(function() {
+			var a = $(this), parent = a.parent(), category = parent.attr('category'), divCategory = $('div.location-list div.category-name[category="' + category + '"]');
+			a.on('click', function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+				scrollMeTo(ul);
+				if(!div.is(':visible')) {
+					div.css('display', 'block');
+				}
+				div.find('div[category]').css('display', 'none').next().css('display', 'none');
+				if(parent.hasClass('visible')) {
+					gmap.hideMarker(category);
+					parent.removeClass('visible');
+					divCategory.css('display', 'none').next().css('display', 'none');
+					div.css('display', 'none');
+					sel.val('');
+				} else {
+					gmap.showMarker(category);
+					parent.addClass('visible');
+					divCategory.css('display', 'block').next().css('display', 'block');
+					sel.val(category);
+				}
+			});
+		});
+		sel.change(function() {
+			var category = sel.val(), opt = sel.find('option:selected'), divCategory = $('div.location-list div.category-name[category="' + category + '"]');
+			if(category != '') {
+				sel.find('option[visible]').removeAttr('visible');
+				ul.find(' > li.visible').removeClass('visible');
+				if(!div.is(':visible')) {
+					div.css('display', 'block');
+				}
+				div.find('div[category]').css('display', 'none').next().css('display', 'none');
+				
+				gmap.showMarker(category);
+				opt.attr('visible', '')
+				ul.find(' > li[category="' + category + '"]').addClass('visible');
+				divCategory.css('display', 'block').next().css('display', 'block');
+			}
+		});
+	},
+	initToggleLocationList: function() {
+		var div = $('div.location-list');
+		div.find('.category-name').each(function() {
+			var elem = $(this), list = elem.next();
+			elem.css('cursor', 'pointer');
+			elem.on('click', function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+				gmap.toggleObj(list);
+			});
+		});
+		div.hover(
+			function(e) {
+				$(this).find('.category-name:visible').next().slideDown();
+			},
+			function(e) {
+				
+			}
+		);
+	},
+	toggleObj: function(obj) {
+		if($(obj).is(':visible')) {
+			$(obj).slideUp(400);
+		} else {
+			$(obj).slideDown(400);
+		}
+	}
+}
+
+function onResize(func) {
+	var t;
+	$(window).resize(function() {
+		clearTimeout(t);
+		t = setTimeout(function() {
+			func.call();
+		}, 200);
+	});
+}
+
+$(function() {
+	/*
+	$('div.category > label').prettyCheckbox({
+		html: '<div class="pretty-checkbox"></div>'
+	});
+	*/
+});
+
+var gmap_init = false;
+var data_markers;
+
+function check_gmap_init(){
+	var $this = $("#section-map");
+	var condition1 = $this.offset().top < (parseInt($(window).scrollTop())+$(window).height());
+	var condition2 = ($this.offset().top + $this.height()) > (parseInt($(window).scrollTop()));
+	if(condition1 && condition2){
+		gmap_init = true;
+		
+		$(window).off('.gmap');
+		
+		console.log("init map")
+		gmap.init();
+		var x = function() {
+			$(".gmnoprint").find("a[href*='terms_maps']").parent().parent().remove();
+			$("a[title*='Click to see']").remove();
+		}
+		setTimeout(x, 500);	
+	}
+}
+
+function validScore(arg){
+	if(typeof(arg) != "undefined" && !isNaN(arg) && arg != ''){
+		if(parseInt(arg) >= 75){
+			return true;
+		}
+	}
+	return false;
+}
+/*
+$(window).on('load.gmap resize.gmap scroll.gmap',function(){
+	if (!gmap_init) check_gmap_init();
+});
+*/

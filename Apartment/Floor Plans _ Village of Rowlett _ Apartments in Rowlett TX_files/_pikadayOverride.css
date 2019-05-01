@@ -1,0 +1,104 @@
+﻿@media screen and (max-width: 600px){
+	.pika-single{
+		max-width: 225px; !important;
+	}
+}
+/*@media screen and (max-width: 400px){
+	.pv2.pika-single{
+		max-width: 90vw !important;
+		left: 2vw !important;
+	}
+}*/
+
+.pika-single {
+	border: none !important;
+	font-family: inherit !important
+}
+	.pika-single.is-bound {
+		padding: 1em;
+	}
+.pika-lendar {
+	float: none !important;
+	width: auto !important;
+	margin: 0 !important;
+}
+.pika-label {
+	font-size: 18px !important;
+	font-weight: 400 !important;
+}
+.pika-prev,
+.pika-next,
+.is-rtl .pika-next {
+	width: 2em !important;
+	height: 2em !important;
+	margin-top:0;
+}
+.pika-title {
+	text-transform: uppercase !important;
+}
+.pika-table th {
+	font-size: 14px !important;
+	text-transform: uppercase !important;
+}
+.pika-table abbr {
+	border: none !important;
+	text-decoration: none;
+	cursor: pointer !important;
+	color: #363f41 !important;
+	font-weight: 400 !important;
+}
+.pika-table tbody {
+	border: 1px #f2f2f2 solid !important;
+}
+	.pika-table tbody td {
+		border-width: 0 1px 1px 0 !important;
+		border-color: #f2f2f2 !important;
+		border-style: solid !important;
+		position: relative;
+		width: 3em;
+		height: 3em;
+	}
+	.pika-table tbody tr td:last-child {
+		border-right: none !important;
+	}
+.pika-button {
+	font-size: 14px !important;
+	line-height: inherit !important;
+	color: #363f41 !important;
+	padding: 0 !important;
+	background: transparent !important;
+	text-align: center !important;
+	width: 100%;
+	height: 100%;
+}
+.is-today .pika-button {
+	/*color: #9F0101 !important;*/ /*#40a9d6*/
+}
+.is-selected .pika-button {
+	/*color: #fff !important;*/
+	/*background: #9F0101 !important;*/ /*40a9d6*/
+	border-radius: inherit !important;
+	font-size: 18px !important;
+	position: absolute;
+	left: -2%;
+	right: -2%;
+	bottom: -2%;
+	width: 110%;
+	height: 110%;
+	min-height: 2.8em;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3) !important;
+}
+	.is-selected .pika-button:before {
+		content: "";
+		display: block;
+		margin: -5px 0 0;
+	}
+	.is-selected .pika-button:after {
+		content: "";
+		position: absolute;
+		left: 25%;
+		right: 25%;
+		bottom: 25%;
+		height: 3px;
+		background: #fff;
+	}

@@ -1,0 +1,44 @@
+function setValue(conName, val)
+{
+	var con = document.getElementsByName(conName);
+	if (con.length == 0) return;
+	if (con[0].tagName.toUpperCase() == 'INPUT')
+	{
+		if (con[0].type.toUpperCase() == 'RADIO')
+		{
+			for (var i = 0; i < con.length; i++)
+			{
+				if (con[i].value.toUpperCase() == val.toUpperCase())
+				{
+					con[i].checked = true;
+				}
+			}
+		}
+		else if (con[0].type.toUpperCase() == 'TEXT' || con[0].type.toUpperCase() == 'TEL' || con[0].type.toUpperCase() == 'EMAIL' || con[0].type.toUpperCase() == 'URL')
+		{
+			con[0].value = val;
+		}
+		else if (con[0].type.toUpperCase() == 'CHECKBOX')
+		{
+			if (val.toUpperCase() == "YES") con[0].checked = true;
+		}
+	}
+	else if (con[0].tagName.toUpperCase() == 'TEXTAREA')
+	{
+		con[0].value = val;
+	}
+	else if (con[0].tagName.toUpperCase() == 'SELECT')
+	{        
+		for (var i = 0; i < con[0].options.length; i++)
+		{
+			//alert(con[0].options[i].value);
+			if (con[0].options[i].value == '') {
+			  if (con[0].options[i].text.toUpperCase() == val.toUpperCase()) { con[0].selectedIndex = i; }
+			}
+			else if (con[0].options[i].value.toUpperCase() == val.toUpperCase())
+			{
+				con[0].selectedIndex = i;
+			}
+		}   
+	}
+}
